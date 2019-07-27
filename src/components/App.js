@@ -1,9 +1,10 @@
 import React from 'react';
+import Builder from './Builder';
 
 function App() {
   return (
     <div className="App">
-			Hello World!
+			<Builder />
     </div>
   );
 }
