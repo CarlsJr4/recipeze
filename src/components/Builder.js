@@ -6,18 +6,22 @@ import Search from './Search';
 const foods = [
 	{
 		type: 'Protein',
+		icon: 'fas fa-drumstick-bite',
 		contents: ['Beef', 'Chicken', 'Pork', 'Tofu']
 	},
 	{
 		type: 'Grains',
+		icon: 'fas fa-bread-slice',
 		contents: ['White rice', 'Brown rice']
 	},
 	{
 		type: 'Veggies',
+		icon: 'fas fa-carrot',
 		contents: ['Broccoli', 'Spinach', 'Brussels Sprouts']
 	},
 	{
 		type: 'Other',
+		icon: 'fas fa-utensils',
 		contents: ['Nuts']
 	}
 ]
@@ -25,7 +29,7 @@ const foods = [
 export default function Builder() {
 
 	const foodCards = foods.map((food) => 
-		<Foodcard contents={food.contents}>
+		<Foodcard contents={food.contents} icon={food.icon}>
 			{food.type}
 		</Foodcard>
 	)
