@@ -2,6 +2,7 @@ import React from 'react';
 import Foodcard from './Foodcard';
 import Search from './Search';
 
+
 const foods = [
 	{
 		type: 'Protein',
@@ -33,7 +34,7 @@ export default function Builder() {
 		<div>
 				<h1>MealBuilder</h1>
 				<h3>Pick foods from at least 3 categories</h3>
-				<div className="category">
+				<div className="categories">
 					{foodCards}
 					<Search />
 				</div>
