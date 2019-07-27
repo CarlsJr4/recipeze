@@ -16,7 +16,13 @@ code {
     monospace;
 }
 
-.category {
+.categories {
 	display: flex;
 	justify-content: space-around;
+}
+
+.foodCard {
+	border: 1px solid red;
+	padding: 1rem;
+	text-align: left;
 }
