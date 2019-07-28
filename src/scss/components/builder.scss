@@ -1,3 +1,4 @@
+// The food card container
 .categories {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) auto;
@@ -13,6 +14,7 @@
 	padding: 0 2rem 5rem 2rem;
 	background-color: lightblue;
 
+	// Individual styles of the foodcards
 	&--Protein {
 		background-color: $cardColor1;
 	}
@@ -29,10 +31,12 @@
 		background-color: $cardColor4;
 	}
 
+	// Font awesome icon in the card
 	> h3 > i {
 		padding-left: 1rem;
 	}
 
+	// Individual food items container and list
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -48,12 +52,14 @@
 
 }
 
+// Button that adds food items
 button[name="add"] {
 	align-self: center;
 	position: absolute;
 	bottom: 1rem;
 }
 
+// Button to submit search query
 button[name="next"] {
 	align-self: center;
 }
