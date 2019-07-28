@@ -7,7 +7,7 @@ export default function Foodcard({title, contents, icon}) {
 	);
 
 	return (
-		<div className="foodCard">
+		<div className={`foodCard foodCard--${title}`}>
 			<h3>{title} <i className={`fas fa-${icon}`}></i></h3>
 			<ul>
 				{foodContents}

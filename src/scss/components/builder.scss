@@ -13,6 +13,22 @@
 	padding: 0 2rem 2rem 2rem;
 	background-color: lightblue;
 
+	&--Protein {
+		background-color: $cardColor1;
+	}
+
+	&--Grains {
+		background-color: $cardColor2;
+	}
+
+	&--Veggies {
+		background-color: $cardColor3;
+	}
+
+	&--Custom {
+		background-color: $cardColor4;
+	}
+
 	ul {
 		list-style-type: none;
 		padding: 0;
