@@ -1,1 +1,10 @@
-@import './base/base';
+@import 
+	'./abstracts/mixins.scss',
+	'./abstracts/variables.scss';
+
+@import 
+	'./base/base';
+
+@import 
+	'./components/builder.scss',
+	'./components/results.scss';

@@ -1,0 +1,30 @@
+.categories {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr) auto;
+	grid-gap: 20px;
+
+	// button {
+	// 	@include border-circle;
+	// }
+}
+
+.foodCard {
+	@include card-style;
+	color: white;
+	padding: 1rem;
+	background-color: lightblue;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			@include border-oval;
+			border: 1px solid white;
+			margin: $base-margin / 2;
+			padding: $base-padding / 3 1rem;
+		}
+
+	}
+
+}
