@@ -2,16 +2,15 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) auto;
 	grid-gap: 20px;
-
-	// button {
-	// 	@include border-circle;
-	// }
 }
 
 .foodCard {
 	@include card-style;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 	color: white;
-	padding: 1rem;
+	padding: 0 2rem 2rem 2rem;
 	background-color: lightblue;
 
 	ul {
@@ -27,4 +26,14 @@
 
 	}
 
+}
+
+button[name="add"] {
+	align-self: center;
+	position: absolute;
+	bottom: 1rem;
+}
+
+button[name="next"] {
+	align-self: center;
 }

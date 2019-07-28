@@ -1,6 +1,11 @@
-@mixin card-style {
-	border-radius: 5px;
+@mixin shadow-effect {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+@mixin card-style {
+	@include shadow-effect;
+	border-radius: 5px;
+
 }
 
 @mixin border-oval {

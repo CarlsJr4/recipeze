@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Search() {
 	return (
-		<button>Next</button>
+		<button name="next">Next</button>
 	)
 }
