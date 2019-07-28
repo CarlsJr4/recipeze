@@ -46,6 +46,12 @@
 			border: 1px solid white;
 			margin: $base-margin / 2;
 			padding: $base-padding / 3 1rem;
+			transition: 0.1s;
+
+			&:hover {
+				background-color: $food-hover-color;
+				color: $food-hover-font-color;
+			}
 		}
 
 	}
