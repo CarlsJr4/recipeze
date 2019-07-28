@@ -5,41 +5,29 @@ import Search from './Search';
 
 const foods = [
 	{
-		type: 'Protein',
-		icon: 'fas fa-drumstick-bite',
-		contents: ['Beef', 'Chicken', 'Pork', 'Tofu']
+		proteins: ['Beef', 'Chicken', 'Pork', 'Tofu']
 	},
 	{
-		type: 'Grains',
-		icon: 'fas fa-bread-slice',
-		contents: ['White rice', 'Brown rice']
+		grains: ['White rice', 'Brown rice']
 	},
 	{
-		type: 'Veggies',
-		icon: 'fas fa-carrot',
-		contents: ['Broccoli', 'Spinach', 'Brussels Sprouts']
+		veggies: ['Broccoli', 'Spinach', 'Brussels Sprouts']
 	},
 	{
-		type: 'Other',
-		icon: 'fas fa-utensils',
-		contents: ['Nuts']
+		custom: ['Nuts']
 	}
 ]
 
-export default function Builder() {
-
-	const foodCards = foods.map((food) => 
-		<Foodcard contents={food.contents} icon={food.icon}>
-			{food.type}
-		</Foodcard>
-	)
-	
+export default function Builder() {	
 	return (
 		<div>
 				<h1>MealBuilder</h1>
 				<h3>Pick foods from at least 3 categories</h3>
 				<div className="categories">
-					{foodCards}
+					<Foodcard title="Protein" icon="drumstick-bite" contents={foods[0].proteins}/>
+					<Foodcard title="Grains" icon="bread-slice" contents={foods[1].grains}/>
+					<Foodcard title="Veggies" icon="carrot" contents={foods[2].veggies}/>
+					<Foodcard title="Custom" icon="utensils" contents={foods[3].custom}/>
 					<Search />
 				</div>
 		</div>
