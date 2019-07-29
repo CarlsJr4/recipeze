@@ -1,0 +1,17 @@
+.recipe__summary {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 1fr;
+
+	img {
+		@include card-style;
+		width: 100%;
+	}
+
+	.recipe__ingredients {
+		@include card-style;
+		padding: $base-padding $base-padding * 2;
+		color: white;
+		background-color: $main-theme;
+	}
+}
