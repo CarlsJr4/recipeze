@@ -2,7 +2,6 @@ import React from 'react';
 import Foodcard from './Foodcard';
 import Search from './Search';
 
-
 const foods = [
 	{
 		proteins: ['Beef', 'Chicken', 'Pork', 'Tofu']
