@@ -37,14 +37,18 @@
 	}
 
 	// Individual food items container and list
-	ul {
-		list-style-type: none;
-		padding: 0;
+		form {
+			display: grid;
+		}
 
-		li {
+		input[type="checkbox"] {
+			display: none;
+		}
+
+		label {
 			@include border-oval;
 			border: 1px solid white;
-			margin: $base-margin / 2;
+			margin: $base-margin / 4;
 			padding: $base-padding / 3 1rem;
 			transition: 0.1s;
 
@@ -53,10 +57,7 @@
 				color: $food-hover-font-color;
 			}
 		}
-
 	}
-
-}
 
 // Button that adds food items
 button[name="add"] {
