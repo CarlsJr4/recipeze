@@ -1,3 +1,29 @@
+.resultsContainer {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
 .resultCard {
-	border: 1px solid red;
+	@include card-style;
+	display: flex;
+	flex-direction: column;
+
+	img {
+		width: 100%;
+		border-radius: 5px 5px 0 0;
+	}
+
+	&__title {
+		color: white;
+		background-color: $main-theme;
+		border-radius:0 0 5px 5px;
+		padding: $base-padding;
+		height: 100%;
+
+		h3 {
+			margin: 0;
+		}
+
+	}
 }
