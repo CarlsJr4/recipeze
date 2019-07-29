@@ -3,6 +3,11 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) auto;
 	grid-gap: 20px;
+
+	// Button to submit search query
+	a {
+		align-self: center;
+	}
 }
 
 .foodCard {
@@ -66,7 +71,7 @@ button[name="add"] {
 	bottom: 1rem;
 }
 
-// Button to submit search query
-button[type="submit"] {
-	align-self: center;
-}
+// Button to submit search query (without react router)
+// button[type="submit"] {
+// 	align-self: center;
+// }

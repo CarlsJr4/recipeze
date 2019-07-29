@@ -1,14 +1,17 @@
 import React from 'react';
 import Likebutton from './Likebutton';
+import { Link } from 'react-router-dom';
 
 export default function Resultcard({title, img}) {
 	return (
-		<div className="resultCard">
-			<img src="https://picsum.photos/200" alt="recipe placeholder" />
-			<div className="resultCard__title">
-				<Likebutton />
-				<h3>{title}</h3>
+		<Link to="/recipe">
+			<div className="resultCard">
+				<img src="https://picsum.photos/200" alt="recipe placeholder" />
+				<div className="resultCard__title">
+					<Likebutton />
+					<h3>{title}</h3>
+				</div>
 			</div>
-		</div>
+		</Link>
 	)
 }
