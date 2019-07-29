@@ -1,17 +1,24 @@
 .resultsContainer {
 	display: grid;
 	grid-gap: 20px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 }
 
 .resultCard {
 	@include card-style;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 
 	img {
 		width: 100%;
 		border-radius: 5px 5px 0 0;
+	}
+
+	button {
+		position: absolute;
+		bottom: 6rem;
+		margin-left: $base-margin;
 	}
 
 	&__title {
