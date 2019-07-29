@@ -8,7 +8,6 @@
 	@include card-style;
 	display: flex;
 	flex-direction: column;
-	position: relative;
 
 	img {
 		width: 100%;
@@ -17,12 +16,12 @@
 
 	button {
 		position: absolute;
-		bottom: 6rem;
-		margin-left: $base-margin;
+		top: -35px;
 	}
 
 	&__title {
 		color: white;
+		position: relative;
 		background-color: $main-theme;
 		border-radius:0 0 5px 5px;
 		padding: $base-padding;
