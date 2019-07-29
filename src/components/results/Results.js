@@ -1,5 +1,6 @@
 import React from 'react';
 import Resultcard from './Resultcard';
+import Backbutton from './Backbutton';
 
 // This response is modeled after the Spoonacular API demo
 const response = [
@@ -36,7 +37,10 @@ export default function Results() {
 
 	return (
 		<div>
-			<h1>Meal Builder</h1>
+			<div className="resultsTitle">
+				<Backbutton />
+				<h1>Meal Builder</h1>
+			</div>
 			<h3>Found 5 results for meals including: beef, brown rice, broccoli</h3>
 			<div className="resultsContainer">
 				{results}
