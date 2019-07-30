@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import foodInfoContext from '../App';
+import {foodStateContext} from '../App';
 
 export default function Deletefood() {
+	const data = useContext(foodStateContext);
 	return (
-		<span><i className="fas fa-times"></i></span>
+		<span onClick={data}><i className="fas fa-times"></i></span>
 	)
 }

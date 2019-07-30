@@ -4,10 +4,9 @@ import Results from './results/Results';
 import Recipe from './recipe/Recipe';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// Task: Load all foods from top-level app state
+// New goal: With the hook established, have it directly update the app's state
 
-// State should live at app level so that all router components can access it 
-// Maybe we should use the context API to pass data down
+export const foodStateContext = React.createContext();
 
 function App() {
 	
@@ -20,24 +19,30 @@ function App() {
 
 	const [foods, updateFood] = useState(allFoods);
 
+	function test() {
+		console.log('foo');
+	}
+
   return (
-		<Router>
-			<div className="App">
-				<Route 
-					path="/" 
-					render={() => <Builder foodList={foods} updateFood={updateFood}/>}
-					exact
-				/> 
-				<Route 
-					path="/results" 
-					component={Results} 
-				/>
-				<Route 
-					path="/recipe" 
-					component={Recipe} 
-				/>
-			</div>
-		</Router>
+		<foodStateContext.Provider value={updateFood}>
+			<Router>
+				<div className="App">
+					<Route 
+						path="/" 
+						render={() => <Builder foodList={foods}/>}
+						exact
+					/> 
+					<Route 
+						path="/results" 
+						component={Results} 
+					/>
+					<Route 
+						path="/recipe" 
+						component={Recipe} 
+					/>
+				</div>
+			</Router>
+		</foodStateContext.Provider>
   );
 }
 
