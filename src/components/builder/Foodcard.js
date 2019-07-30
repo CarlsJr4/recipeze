@@ -1,5 +1,6 @@
 import React from 'react';
 import Addfood from './Addfood';
+import Deletefood from './Deletefood';
 const uuidv4 = require('uuid/v4');
 
 
@@ -18,7 +19,7 @@ export default function Foodcard({title, contents, icon}) {
 					<input id={labelId} type="checkbox" value={item}/>
 					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>
 						<span>{item}</span>
-						<span><i class="fas fa-times"></i></span>
+						<Deletefood />
 					</label>
 				</React.Fragment>
 			)
