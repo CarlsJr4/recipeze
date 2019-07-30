@@ -7,7 +7,7 @@ export default function Addfood() {
 	return (
 		<form>
 			<input type="text" placeholder="..." />
-			<button name="add"><i class="fas fa-plus"></i></button>
+			<button name="add"><i className="fas fa-plus"></i></button>
 		</form>
 	)
 }

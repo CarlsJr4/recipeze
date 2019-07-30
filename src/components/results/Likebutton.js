@@ -5,6 +5,6 @@ import React from 'react'
 // Maintain constant distance above card title
 export default function Likebutton() {
 	return (
-		<button><i class="far fa-heart"></i></button>
+		<button><i className="far fa-heart"></i></button>
 	)
 }
