@@ -64,6 +64,11 @@
 		}
 	}
 
+.checked {
+	background-color: $food-hover-color;
+	color: $food-hover-font-color;
+}
+
 // Button that adds food items
 button[name="add"] {
 	align-self: center;

@@ -5,13 +5,18 @@ const uuidv4 = require('uuid/v4');
 
 export default function Foodcard({title, contents, icon}) {
 
+	function toggleCheck(id) {
+		const label = document.querySelector(`label[for="${id}"]`);
+		label.classList.toggle('checked');
+	}
+
 	// Assign each foodcard a label and invisible checkbox to send information to API
 	const foodContents = contents.map((item) => {
 		const labelId = uuidv4();
 		return (
 				<React.Fragment>
 					<input id={labelId} type="checkbox" value={item} />
-					<label htmlFor={labelId}>{item}</label>
+					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>{item}</label>
 				</React.Fragment>
 			)
 		}
