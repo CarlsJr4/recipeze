@@ -15,8 +15,11 @@ export default function Foodcard({title, contents, icon}) {
 		const labelId = uuidv4();
 		return (
 				<React.Fragment>
-					<input id={labelId} type="checkbox" value={item} />
-					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>{item}</label>
+					<input id={labelId} type="checkbox" value={item}/>
+					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>
+						<span>{item}</span>
+						<span><i class="fas fa-times"></i></span>
+					</label>
 				</React.Fragment>
 			)
 		}

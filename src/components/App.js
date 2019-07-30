@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // Maybe we should use the context API to pass data down
 
 function App() {
+	
 	const allFoods = {
 			proteins: ['Beef', 'Chicken', 'Pork', 'Tofu'],
 			grains: ['White rice', 'Brown rice'],
