@@ -4,8 +4,8 @@ import Search from './Search';
 import FoodContext from '../context/FoodContext';
 
 
-export default function Builder({updateFood}) {	
-	const foodList = useContext(FoodContext);
+export default function Builder() {	
+	const globalState = useContext(FoodContext);
 	return (
 		<div>
 				<h1>MealBuilder</h1>
@@ -14,22 +14,22 @@ export default function Builder({updateFood}) {
 					<Foodcard 
 						title="Protein" 
 						icon="drumstick-bite" 
-						contents={foodList.proteins}
+						contents={globalState.foods.proteins}
 					/>
 					<Foodcard 
 						title="Grains" 
 						icon="bread-slice" 
-						contents={foodList.grains}
+						contents={globalState.foods.grains}
 					/>
 					<Foodcard 
 						title="Veggies"
 						icon="carrot"
-						contents={foodList.veggies}
+						contents={globalState.foods.veggies}
 					/>
 					<Foodcard 
 						title="Custom"
 						icon="utensils"
-						contents={foodList.custom}
+						contents={globalState.foods.custom}
 					/>
 					<Search />
 				</div>

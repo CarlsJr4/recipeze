@@ -15,13 +15,13 @@ export default function Foodcard({title, contents, icon}) {
 	const foodContents = contents.map((item) => {
 		const labelId = uuidv4();
 		return (
-				<React.Fragment>
+				<>
 					<input id={labelId} type="checkbox" value={item}/>
 					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>
 						<span>{item}</span>
-						<Deletefood />
+						<Deletefood foodID={labelId} />
 					</label>
-				</React.Fragment>
+				</>
 			)
 		}
 	);

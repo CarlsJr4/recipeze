@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import FoodContext from '../context/FoodContext';
 
-export default function Deletefood() {
-	const data = useContext(FoodContext);
+export default function Deletefood({foodID}) {
+	const globalState = useContext(FoodContext);
 	return (
-		<span onClick={data}><i className="fas fa-times"></i></span>
+		<span onClick={() => globalState.removeFood(foodID)}>
+			<i className="fas fa-times"></i>
+		</span>
 	)
 }
