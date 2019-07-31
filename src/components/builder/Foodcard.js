@@ -13,13 +13,12 @@ export default function Foodcard({title, contents, icon}) {
 
 	// Assign each foodcard a label and invisible checkbox to send information to API
 	const foodContents = contents.map((item) => {
-		const labelId = uuidv4();
 		return (
 				<>
-					<input id={labelId} type="checkbox" value={item}/>
-					<label onClick={() => toggleCheck(labelId)} htmlFor={labelId}>
-						<span>{item}</span>
-						<Deletefood foodID={labelId} />
+					<input id={item.id} type="checkbox" value={item.name}/>
+					<label onClick={() => toggleCheck(item.id)} htmlFor={item.id}>
+						<span>{item.name}</span>
+						<Deletefood foodID={item.id} />
 					</label>
 				</>
 			)

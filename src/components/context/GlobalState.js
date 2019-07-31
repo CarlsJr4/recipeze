@@ -3,27 +3,38 @@ import foodReducer from './reducers';
 import FoodContext from './FoodContext';
 
 // This is the top-level component of the app
-// State-changing functions will live here
 export default function GlobalState({children}) {
 
 	const allFoods = {
-		proteins: ['Beef', 'Chicken', 'Pork', 'Tofu'],
-		grains: ['White rice', 'Brown rice'],
-		veggies: ['Broccoli', 'Spinach', 'Brussels Sprouts'],
-		custom: ['Nuts']
-	}
-
-	// Passing this function to an event listener will call dispatch with this particular configuration
-	function removeFood(foodId) {
-		dispatch({
-			type: 'remove_food',
-			id: foodId
-		})
+		proteins: [
+			{ name: 'Beef', id: 'p1'},
+			{ name: 'Chicken', id: 'p2'},
+			{ name: 'Pork', id: 'p3'},
+		],
+		grains: [
+			{ name: 'White Rice', id: 'g1'},
+			{ name: 'Brown Rice', id: 'g2'},
+		],
+		veggies: [
+			{ name: 'Broccoli', id: 'v1'},
+			{ name: 'Spinach', id: 'v2'},
+			{ name: 'Brussels Sprouts', id: 'v3'},
+		],
+		custom: [
+			{ name: 'Nuts', id: 'c1'},
+		],
 	}
 
 	const [state, dispatch] = useReducer(foodReducer, allFoods);
 
-	// We can pass all state-changing functions into Context
+		// Passing this function to an event listener will call dispatch with this particular configuration
+		function removeFood(foodId) {
+			dispatch({
+				type: 'remove_food',
+				id: foodId
+			})
+		}
+
 	return (
 		<FoodContext.Provider value={{
 			foods: state,
