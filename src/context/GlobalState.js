@@ -28,10 +28,11 @@ export default function GlobalState({children}) {
 	const [ingredientState, dispatch] = useReducer(reducer, ingredients);
 
 		// Passing this function to an event listener will call dispatch with this particular configuration
-		function removeFood(foodId) {
+		function removeFood(id, category) {
 			dispatch({
 				type: 'remove_food',
-				id: foodId
+				id,
+				category
 			})
 		}
 

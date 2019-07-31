@@ -14,21 +14,25 @@ export default function Builder() {
 					<Foodcard 
 						title="Protein" 
 						icon="drumstick-bite" 
-						contents={globalState.ingredients.proteins}
+						category="proteins"
+						contents={globalState.ingredients.proteins} // This is an array
 					/>
 					<Foodcard 
 						title="Grains" 
 						icon="bread-slice" 
+						category="grains"
 						contents={globalState.ingredients.grains}
 					/>
 					<Foodcard 
 						title="Veggies"
 						icon="carrot"
+						category="veggies"
 						contents={globalState.ingredients.veggies}
 					/>
 					<Foodcard 
 						title="Custom"
 						icon="utensils"
+						category="custom"
 						contents={globalState.ingredients.custom}
 					/>
 					<Search />

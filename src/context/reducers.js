@@ -1,12 +1,21 @@
-// This case of reducer should filter the state. 
-// It must be fed an array to use the filter method
-// The arguments we need are: category and ID
-const reducer = (state, action) => {
-	// switch (action.type) {
-		// case 'remove_food': 
-		// 	return removeFood(state, foodID)
-	// }
-	return state
+const reducer = (state, {type, id, category}) => {
+	switch (type) {
+		case 'remove_food':
+			// Copy the state object
+			const modifiedState = Object.assign({}, state);
+			// Copy the array of the category of food to modify 
+			const stateCategory = [...modifiedState[category]]; 
+			// Filter the array
+			const filteredCategory = stateCategory.filter(ingredient => 
+				ingredient.id !== id
+			)
+			// Assign new array to modified state
+			modifiedState[category] = filteredCategory; 
+			// Update state
+			return modifiedState; 
+		default: throw new Error()
+	}
 }
+
 
 export default reducer;
