@@ -1,35 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import GlobalState from './context/GlobalState';
 import Builder from './builder/Builder';
 import Results from './results/Results';
 import Recipe from './recipe/Recipe';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// New goal: With the hook established, have it directly update the app's state
+// Goal: Refactor app to pull data from a GlobalState component
+// Goal 2: With the hook established, have it directly update the app's state
 
 export const foodStateContext = React.createContext();
 
 function App() {
 	
-	const allFoods = {
-			proteins: ['Beef', 'Chicken', 'Pork', 'Tofu'],
-			grains: ['White rice', 'Brown rice'],
-			veggies: ['Broccoli', 'Spinach', 'Brussels Sprouts'],
-			custom: ['Nuts']
-	}
-
-	const [foods, updateFood] = useState(allFoods);
-
-	function test() {
-		console.log('foo');
-	}
+	// Because we have complex state logic, maybe can use useReducer as an alternative to useState
+	// We should use it because the next state depends on the previous one
+	// const [foods, updateFood] = useState(allFoods);
 
   return (
-		<foodStateContext.Provider value={updateFood}>
+		<GlobalState>
 			<Router>
 				<div className="App">
 					<Route 
 						path="/" 
-						render={() => <Builder foodList={foods}/>}
+						component={Builder}
 						exact
 					/> 
 					<Route 
@@ -42,7 +35,7 @@ function App() {
 					/>
 				</div>
 			</Router>
-		</foodStateContext.Provider>
+		</GlobalState>
   );
 }
 

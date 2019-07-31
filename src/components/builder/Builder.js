@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Foodcard from './Foodcard';
 import Search from './Search';
+import FoodContext from '../context/FoodContext';
 
 
-export default function Builder({foodList, updateFood}) {	
+export default function Builder({updateFood}) {	
+	const foodList = useContext(FoodContext);
 	return (
 		<div>
 				<h1>MealBuilder</h1>
