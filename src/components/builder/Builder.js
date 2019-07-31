@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Foodcard from './Foodcard';
 import Search from './Search';
-import FoodContext from '../context/FoodContext';
+import FoodContext from '../../context/FoodContext';
 
 
 export default function Builder() {	
@@ -14,22 +14,22 @@ export default function Builder() {
 					<Foodcard 
 						title="Protein" 
 						icon="drumstick-bite" 
-						contents={globalState.foods.proteins}
+						contents={globalState.ingredients.proteins}
 					/>
 					<Foodcard 
 						title="Grains" 
 						icon="bread-slice" 
-						contents={globalState.foods.grains}
+						contents={globalState.ingredients.grains}
 					/>
 					<Foodcard 
 						title="Veggies"
 						icon="carrot"
-						contents={globalState.foods.veggies}
+						contents={globalState.ingredients.veggies}
 					/>
 					<Foodcard 
 						title="Custom"
 						icon="utensils"
-						contents={globalState.foods.custom}
+						contents={globalState.ingredients.custom}
 					/>
 					<Search />
 				</div>

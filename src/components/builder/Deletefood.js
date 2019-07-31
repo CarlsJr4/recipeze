@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import FoodContext from '../context/FoodContext';
+import FoodContext from '../../context/FoodContext';
 
 export default function Deletefood({foodID}) {
 	const globalState = useContext(FoodContext);

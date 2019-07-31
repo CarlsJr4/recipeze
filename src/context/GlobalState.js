@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react';
-import foodReducer from './reducers';
+import reducer from './reducers';
 import FoodContext from './FoodContext';
 
 // This is the top-level component of the app
 export default function GlobalState({children}) {
 
-	const allFoods = {
+	const ingredients = {
 		proteins: [
 			{ name: 'Beef', id: 'p1'},
 			{ name: 'Chicken', id: 'p2'},
@@ -25,7 +25,7 @@ export default function GlobalState({children}) {
 		],
 	}
 
-	const [state, dispatch] = useReducer(foodReducer, allFoods);
+	const [ingredientState, dispatch] = useReducer(reducer, ingredients);
 
 		// Passing this function to an event listener will call dispatch with this particular configuration
 		function removeFood(foodId) {
@@ -37,7 +37,7 @@ export default function GlobalState({children}) {
 
 	return (
 		<FoodContext.Provider value={{
-			foods: state,
+			ingredients: ingredientState,
 			removeFood: removeFood
 			}}
 		>
