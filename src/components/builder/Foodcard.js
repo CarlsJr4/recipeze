@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import Addfood from './Addfood';
 import Deletefood from './Deletefood';
-import reducer from '../../context/reducers';
 
 export default function Foodcard({title, contents, icon, category}) {
-	// Internal state for each card
-	// Will we have different hooks for the input value and form submission?
-	const [inputState, setStateInput] = useState({inputValue: ''});
+	const [_, setStateInput] = useState({inputValue: ''}); // This hook is just here to make a controlled component
 
 	// Function to toggle the appearance of the list item when clicked
 	function toggleCheck(id) {
