@@ -28,7 +28,6 @@ function addFood(state, category, inputValue) {
 	return modifiedState;
 }
 
-// {type, id, category, inputValue}
 const reducer = (state, action) => {
 	switch (action.type) {
 		case 'remove_food':

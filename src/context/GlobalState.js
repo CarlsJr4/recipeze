@@ -2,8 +2,8 @@ import React, { useReducer } from 'react';
 import reducer from './reducers';
 import FoodContext from './FoodContext';
 
-// Next goal: refactor things
-// Next next goal: Toggle plus button to show/hide it and input
+// Next goal: Toggle plus button to show/hide it and input
+// Next next goal: Submit the mealcard forms and turn all responses into an array to be submitted to API
 // This is the top-level component of the app
 export default function GlobalState({children}) {
 

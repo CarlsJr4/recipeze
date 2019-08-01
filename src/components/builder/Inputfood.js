@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 
-export default function Addfood({updateInput, category}) {
+export default function Inputfood({updateInput, category}) {
 	const globalState = useContext(FoodContext);
 
 	const inputBox = useRef(null)
@@ -21,8 +21,8 @@ export default function Addfood({updateInput, category}) {
 				onChange={() => updateInput({inputValue: inputBox.current.value})} 
 				type="text"
 				placeholder="..." />
-			<button name="add">
-				<i className="fas fa-plus"></i>
+			<button name="cancelAdd">
+				<i className="fas fa-times"></i>
 			</button>
 		</form>
 	)
