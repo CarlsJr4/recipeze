@@ -46,8 +46,7 @@ export default function Foodcard({title, contents, icon, category}) {
 			<form>
 				{foodContents}
 			</form>
-			<Addfood onChange={setStateInput} />
-			<p>{inputState.inputValue}</p>
+			<Addfood updateInput={setStateInput} category={category} />
 		</div>
 	)
 }

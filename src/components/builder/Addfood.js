@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import FoodContext from '../../context/FoodContext';
 
-export default function Addfood({onChange}) {
+export default function Addfood({updateInput, category}) {
 	// Goal: Text input must only render if plus button is clicked and state is true
 	// Clicking plus button updates state, submitting also updates state and resets form
 
@@ -20,15 +21,24 @@ export default function Addfood({onChange}) {
 	// 3. On submit, clear form, take input and category, call top-level function using those args
 	// 4. The top-level function will call dispatch with args
 	// 5. The reducer will add the new food, along with ID, to the correct array
+	const globalState = useContext(FoodContext);
 
 	// Remember to use proptypes!
 	const inputBox = useRef(null)
 
+	function handleSubmit(e) {
+		e.preventDefault();
+		updateInput({inputValue: ''}); // Reset internal state
+		const addedFood = inputBox.current.value;
+		inputBox.current.value = ''; // Reset input box
+		globalState.addFood(addedFood, category);
+	}
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<input 
 				ref={inputBox}
-				onChange={() => onChange({inputValue: inputBox.current.value})} 
+				onChange={() => updateInput({inputValue: inputBox.current.value})} 
 				type="text"
 				placeholder="..." />
 			<button name="add">

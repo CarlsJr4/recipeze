@@ -38,10 +38,19 @@ export default function GlobalState({children}) {
 			})
 		}
 
+		function addFood(inputValue, category) {
+			dispatch({
+				type: 'add_food',
+				inputValue,
+				category
+			})
+		}
+
 	return (
 		<FoodContext.Provider value={{
 			ingredients: ingredientState,
-			removeFood: removeFood
+			removeFood,
+			addFood
 			}}
 		>
 			{children}
