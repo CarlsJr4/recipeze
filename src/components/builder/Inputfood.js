@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 
-export default function Inputfood({updateInput, category}) {
+export default function Inputfood({updateInput, category, handleClick, handleChange}) {
 	const globalState = useContext(FoodContext);
 
 	const inputBox = useRef(null)
@@ -18,10 +18,11 @@ export default function Inputfood({updateInput, category}) {
 		<form onSubmit={handleSubmit}>
 			<input 
 				ref={inputBox}
-				onChange={() => updateInput({inputValue: inputBox.current.value})} 
+				onChange={() => handleChange({inputValue: inputBox.current.value})} 
 				type="text"
+				autoFocus
 				placeholder="..." />
-			<button name="cancelAdd">
+			<button name="cancelAdd" onClick={() => handleClick(false)}>
 				<i className="fas fa-times"></i>
 			</button>
 		</form>

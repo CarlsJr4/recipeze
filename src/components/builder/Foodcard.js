@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import Inputfood from './Inputfood';
+import Foodform from './Foodform';
 import Deletefood from './Deletefood';
 
 export default function Foodcard({title, contents, icon, category}) {
-	// Plan: if state is true, render addFood, if not, render initializeFood
-	// We'd need to change the name of Add food to Addbutton or something
-	// State will live here because it does not need to be accessed by other components
-	 
 	const [_, setStateInput] = useState({inputValue: ''}); // This hook is just here to make a controlled component
 
 	// Function to toggle the appearance of the list item when clicked
@@ -47,7 +43,7 @@ export default function Foodcard({title, contents, icon, category}) {
 			<form>
 				{foodContents}
 			</form>
-			<Inputfood updateInput={setStateInput} category={category} />
+			<Foodform handleChange={setStateInput}/>
 		</div>
 	)
 }
