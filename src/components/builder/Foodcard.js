@@ -43,7 +43,10 @@ export default function Foodcard({title, contents, icon, category}) {
 			<form>
 				{foodContents}
 			</form>
-			<Foodform handleChange={setStateInput}/>
+			<Foodform 
+				handleChange={setStateInput} 
+				category={category}
+			/>
 		</div>
 	)
 }

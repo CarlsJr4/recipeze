@@ -1,14 +1,14 @@
 import React, { useRef, useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 
-export default function Inputfood({updateInput, category, handleClick, handleChange}) {
+export default function Inputfood({category, handleClick, handleChange}) {
 	const globalState = useContext(FoodContext);
 
-	const inputBox = useRef(null)
+	const inputBox = useRef(null);
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		updateInput({inputValue: ''}); // Reset internal state
+		handleChange({inputValue: ''}); // Reset internal state
 		const addedFood = inputBox.current.value;
 		inputBox.current.value = ''; // Reset input box
 		globalState.addFood(addedFood, category);
@@ -21,8 +21,13 @@ export default function Inputfood({updateInput, category, handleClick, handleCha
 				onChange={() => handleChange({inputValue: inputBox.current.value})} 
 				type="text"
 				autoFocus
-				placeholder="..." />
-			<button name="cancelAdd" onClick={() => handleClick(false)}>
+				placeholder="..." 
+			/>
+			<button 
+				type="button" 
+				name="cancelAdd" 
+				onClick={() => handleClick(false)}
+			>
 				<i className="fas fa-times"></i>
 			</button>
 		</form>
