@@ -8,6 +8,7 @@ export default function Foodform({handleChange, category}) {
 		return (
 			<Inputfood 
 				handleClick={toggleInputState} 
+				handleBlur={toggleInputState}
 				handleChange={handleChange} 
 				category={category} 
 			/>

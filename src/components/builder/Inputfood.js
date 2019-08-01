@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 
-export default function Inputfood({category, handleClick, handleChange}) {
+export default function Inputfood({category, handleClick, handleChange, handleBlur}) {
 	const globalState = useContext(FoodContext);
 
 	const inputBox = useRef(null);
@@ -18,6 +18,7 @@ export default function Inputfood({category, handleClick, handleChange}) {
 		<form onSubmit={handleSubmit}>
 			<input 
 				ref={inputBox}
+				onBlur={() => handleBlur(false) } // Sets inputEnabled to false for better UX
 				onChange={() => handleChange({inputValue: inputBox.current.value})} 
 				type="text"
 				autoFocus
@@ -26,7 +27,7 @@ export default function Inputfood({category, handleClick, handleChange}) {
 			<button 
 				type="button" 
 				name="cancelAdd" 
-				onClick={() => handleClick(false)}
+				onClick={() => handleClick(false)} // Sets inputEnabled state to false
 			>
 				<i className="fas fa-times"></i>
 			</button>
