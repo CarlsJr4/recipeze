@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Addfood from './Addfood';
 import Deletefood from './Deletefood';
-
+import reducer from '../../context/reducers';
 
 export default function Foodcard({title, contents, icon, category}) {
+	// Internal state for each card
+	// Will we have different hooks for the input value and form submission?
+	const [inputState, setStateInput] = useState({inputValue: ''});
 
+	// Function to toggle the appearance of the list item when clicked
 	function toggleCheck(id) {
 		const label = document.querySelector(`label[for="${id}"]`);
 		label.classList.toggle('checked');
 	}
 
-	// Assign each foodcard a label and invisible checkbox to send information to API
+	// This section is the contents of each card
 	const foodContents = contents.map((item) => {
 		return (
 				<React.Fragment key={item.id}>
@@ -29,7 +33,6 @@ export default function Foodcard({title, contents, icon, category}) {
 						<Deletefood 
 							id={item.id}
 							category={category}
-							// How can we extract the item's category?
 						/>
 					</label>
 				</React.Fragment>
@@ -43,7 +46,8 @@ export default function Foodcard({title, contents, icon, category}) {
 			<form>
 				{foodContents}
 			</form>
-			<Addfood />
+			<Addfood onChange={setStateInput} />
+			<p>{inputState.inputValue}</p>
 		</div>
 	)
 }
