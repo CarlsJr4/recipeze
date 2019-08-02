@@ -87,8 +87,13 @@
 
 	}
 
-.checked {
+label.checked {
 	background-color: $food-hover-color;
 	color: $food-hover-font-color;
+	span {
+		i.fa-times {
+			display: none;
+		}
+	}
 }
 
