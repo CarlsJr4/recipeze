@@ -4,6 +4,9 @@ import Search from './Search';
 import FoodContext from '../../context/FoodContext';
 
 
+// Find a way to attach an event listener to the search button
+// The search button will call a dispatch function
+// The dispatch function will send args
 export default function Builder() {	
 	const globalState = useContext(FoodContext);
 	return (
