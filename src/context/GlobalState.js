@@ -43,19 +43,27 @@ export default function GlobalState({children}) {
 	const [searchQueryState, updateSearchQuery] = useState([]);
 
 	// What to send to the actual API
-	const [APIRequest, updateRequest] = useState([]);
+	const [APIRequest, updateAPIRequest] = useState([]);
 
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
 		if (checkBox.checked) {
 			const foodInfo = {name, id} // Set up an object to push to the array, incase we need to delete by ID
-			console.log(searchQueryState)
 			updateSearchQuery([...searchQueryState, foodInfo]);
 		} else {
 			const stateCopy = [...searchQueryState];
 			const searchState = stateCopy.filter(item => item.id !== id);
 			updateSearchQuery([...searchState]);
 		}
+	}
+
+	function populateSearch() {
+		const searchState = [...searchQueryState]; // Make a copy of the state
+		const APIArray = []; // Initialize an array for each name
+		searchState.forEach(item => APIArray.push(item.name)); // Extract each name and push to array
+		console.log(APIArray);
+		updateAPIRequest([...APIArray]); // Why isn't the state updating at all?
+		console.log(APIRequest);
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
@@ -81,7 +89,8 @@ export default function GlobalState({children}) {
 			removeFood,
 			addFood,
 			selectFood,
-			searchQueryState
+			searchQueryState, // Technically, we don't need to pass this down
+			populateSearch
 			}}
 		>
 			{children}
