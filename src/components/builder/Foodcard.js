@@ -14,18 +14,6 @@ export default function Foodcard({title, contents, icon, category}) {
 		label.classList.toggle('checked');
 	}
 
-	function sendItemToState(state, id, name) {
-		const checkBox = document.querySelector(`input[id="${id}"]`);
-		if (checkBox.checked) {
-			const foodInfo = {name, id} // Set up an object to push to the array, incase we need to delete by ID
-			return [...state, foodInfo]
-		} else {
-			const stateCopy = [...state];
-			const searchState = stateCopy.filter(item => item.id !== id);
-			return [...searchState]
-		}
-	}
-
 	// This section is the contents of each card
 	const foodContents = contents.map((item) => {
 		return (
@@ -34,8 +22,7 @@ export default function Foodcard({title, contents, icon, category}) {
 						id={item.id} 
 						type="checkbox" 
 						value={item.name}
-						// This event listener is equivalent to {() => updateSearchQuery([...searchQueryState, name])}
-						onClick={() => globalState.selectFood(sendItemToState(globalState.searchQueryState, item.id, item.name))}
+						onClick={() => globalState.selectFood(item.id, item.name)}
 					/>
 					<label 
 						onClick={() => toggleAppearance(item.id)}

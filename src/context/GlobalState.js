@@ -18,7 +18,7 @@ export default function GlobalState({children}) {
 
 	const ingredients = {
 		proteins: [
-			{ name: 'Beef', id: 'p1'},
+			{ name: 'Beef', id: 'p1'}, 
 			{ name: 'Chicken', id: 'p2'},
 			{ name: 'Pork', id: 'p3'},
 		],
@@ -45,30 +45,43 @@ export default function GlobalState({children}) {
 	// What to send to the actual API
 	const [APIRequest, updateRequest] = useState([]);
 
-		// Passing these functions to event listeners will call dispatch with these particular configurations
-		function removeFood(id, category) {
-			dispatch({
-				type: 'remove_food',
-				id,
-				category
-			})
+	function selectFood(id, name) {
+		const checkBox = document.querySelector(`input[id="${id}"]`);
+		if (checkBox.checked) {
+			const foodInfo = {name, id} // Set up an object to push to the array, incase we need to delete by ID
+			console.log(searchQueryState)
+			updateSearchQuery([...searchQueryState, foodInfo]);
+		} else {
+			const stateCopy = [...searchQueryState];
+			const searchState = stateCopy.filter(item => item.id !== id);
+			updateSearchQuery([...searchState]);
 		}
+	}
 
-		function addFood(inputValue, category) {
-			dispatch({
-				type: 'add_food',
-				inputValue,
-				category
-			})
-		}
+	// Passing these functions to event listeners will call dispatch with these particular configurations
+	function removeFood(id, category) {
+		dispatch({
+			type: 'remove_food',
+			id,
+			category
+		})
+	}
+
+	function addFood(inputValue, category) {
+		dispatch({
+			type: 'add_food',
+			inputValue,
+			category
+		})
+	}
 
 	return (
 		<FoodContext.Provider value={{
 			ingredients: ingredientState,
 			removeFood,
 			addFood,
-			searchQueryState,
-			selectFood: updateSearchQuery
+			selectFood,
+			searchQueryState
 			}}
 		>
 			{children}
