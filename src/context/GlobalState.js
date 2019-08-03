@@ -81,7 +81,7 @@ export default function GlobalState({children}) {
 		
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
-		  console.log(body);
+		  console.log(JSON.parse(body));
 		});
 		return updateSearchQuery([]); // Reset the search state so duplicates don't get sent if the user hits the back button
 	}
