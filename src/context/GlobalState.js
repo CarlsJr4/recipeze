@@ -45,7 +45,7 @@ export default function GlobalState({children}) {
 	const [searchQueryState, updateSearchQuery] = useState([]);
 
 	// Stores response as an object
-	const [APIResponse, populateResponse] = useState(null);
+	const [APIResponse, populateResponse] = useState([]);
 
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
@@ -137,6 +137,7 @@ export default function GlobalState({children}) {
 			selectFood,
 			sendAPIRequest,
 			searchQueryState,
+			APIResponse
 			}}
 		>
 			{children}
