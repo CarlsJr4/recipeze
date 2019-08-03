@@ -42,9 +42,6 @@ export default function GlobalState({children}) {
 	// A temporary array that will hold the contents of foods to send to Spoonacular's API
 	const [searchQueryState, updateSearchQuery] = useState([]);
 
-	// What to send to the actual API
-	const [APIRequest, updateAPIRequest] = useState([]);
-
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
 		if (checkBox.checked) {
@@ -57,13 +54,14 @@ export default function GlobalState({children}) {
 		}
 	}
 
-	function populateSearch() {
+	function sendAPIRequest() {
 		const searchState = [...searchQueryState]; // Make a copy of the state
 		const APIArray = []; // Initialize an array for each name
 		searchState.forEach(item => APIArray.push(item.name)); // Extract each name and push to array
-		console.log(APIArray);
-		updateAPIRequest([...APIArray]); // Why isn't the state updating at all?
-		console.log(APIRequest);
+		// Do the API stuff
+		const APIString = APIArray.join().toLowerCase();
+		const url = 'https://api.spoonacular.com/recipes/findByIngredients';
+		return updateSearchQuery([]); // Reset the search state so duplicates don't get sent if the user hits the back button
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
@@ -89,8 +87,8 @@ export default function GlobalState({children}) {
 			removeFood,
 			addFood,
 			selectFood,
-			searchQueryState, // Technically, we don't need to pass this down
-			populateSearch
+			sendAPIRequest,
+			searchQueryState
 			}}
 		>
 			{children}
