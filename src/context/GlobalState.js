@@ -44,6 +44,9 @@ export default function GlobalState({children}) {
 	// A temporary array that will hold the contents of foods to send to Spoonacular's API
 	const [searchQueryState, updateSearchQuery] = useState([]);
 
+	// Stores response as an object
+	const [APIResponse, populateResponse] = useState(null);
+
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
 		if (checkBox.checked) {
@@ -60,30 +63,53 @@ export default function GlobalState({children}) {
 		const searchState = [...searchQueryState]; // Make a copy of the state
 		const APIArray = []; // Initialize an array for each name
 		searchState.forEach(item => APIArray.push(item.name)); // Extract each name and push to array
-		// Do the API stuff - Put this on hold until unirest works properly
-		const searchString = APIArray.join().toLowerCase();
-		console.log(searchString);
-		const key = apiKey;
-		var options = { 
-			method: 'GET',
-		  url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-		  headers: { 
-			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-			"x-rapidapi-key": key
-		  },
-		  qs: { 
-			"number": "5",
-			"ranking": "1",
-			"ignorePantry": "false",
-			"ingredients": searchString 
-		  }
-		};
+		// Do the API stuff
+		// const searchString = APIArray.join().toLowerCase();
+		// console.log(searchString);
+		// const key = apiKey;
+		// var options = { 
+		// 	method: 'GET',
+		//   url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+		//   headers: { 
+		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+		// 	"x-rapidapi-key": key
+		//   },
+		//   qs: { 
+		// 	"number": "5",
+		// 	"ranking": "1",
+		// 	"ignorePantry": "false",
+		// 	"ingredients": searchString 
+		//   }
+		// };
 		
-		request(options, function (error, response, body) {
-		  if (error) throw new Error(error);
-		  console.log(JSON.parse(body));
-		});
-		return updateSearchQuery([]); // Reset the search state so duplicates don't get sent if the user hits the back button
+		// request(options, function (error, response, body) {
+		//   if (error) throw new Error(error);
+		//   const res = JSON.parse(body);
+		//   // Figure out a way to take the object and store it in a state
+		//   console.log(res);
+		//   receiveFoods(res);
+		//   console.log(APIResponse);
+		// });
+		// Placeholder response so we don't use up too many API calls
+		const res = [
+			{
+				id: 1,
+				title: 'title1',
+				image: 'https://picsum.photos/200'
+			},
+			{
+				id: 2,
+				title: 'title2',
+				image: 'https://picsum.photos/200'
+			},
+			{
+				id: 3,
+				title: 'title3',
+				image: 'https://picsum.photos/200'
+			}
+		]
+		return populateResponse(res); // Reset the search state so duplicates don't get sent if the user hits the back button
+		// What if we use unload to reset the search query? NOTE: We need to reset the search 
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
@@ -110,7 +136,7 @@ export default function GlobalState({children}) {
 			addFood,
 			selectFood,
 			sendAPIRequest,
-			searchQueryState
+			searchQueryState,
 			}}
 		>
 			{children}
