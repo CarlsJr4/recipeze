@@ -1,6 +1,8 @@
 import React, { useReducer, useState } from 'react';
 import reducer from './reducers';
 import FoodContext from './FoodContext';
+import apiKey from '../key';
+var request = require('request');
 
 // UX Goals
 // Next goal: Use the esc key to get out of the form
@@ -58,9 +60,29 @@ export default function GlobalState({children}) {
 		const searchState = [...searchQueryState]; // Make a copy of the state
 		const APIArray = []; // Initialize an array for each name
 		searchState.forEach(item => APIArray.push(item.name)); // Extract each name and push to array
-		// Do the API stuff
-		const APIString = APIArray.join().toLowerCase();
-		const url = 'https://api.spoonacular.com/recipes/findByIngredients';
+		// Do the API stuff - Put this on hold until unirest works properly
+		const searchString = APIArray.join().toLowerCase();
+		console.log(searchString);
+		const key = apiKey;
+		var options = { 
+			method: 'GET',
+		  url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+		  headers: { 
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": key
+		  },
+		  qs: { 
+			"number": "5",
+			"ranking": "1",
+			"ignorePantry": "false",
+			"ingredients": searchString 
+		  }
+		};
+		
+		request(options, function (error, response, body) {
+		  if (error) throw new Error(error);
+		  console.log(body);
+		});
 		return updateSearchQuery([]); // Reset the search state so duplicates don't get sent if the user hits the back button
 	}
 
