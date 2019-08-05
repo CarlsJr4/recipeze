@@ -1,36 +1,21 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import FoodContext from '../../context/FoodContext';
 import Resultcard from './Resultcard';
 import Backbutton from './Backbutton';
 
 // This response is modeled after the Spoonacular API demo
-const response = [
-	{
-		id: 641803,
-		title: "Easy & Delish! ~ Apple Crumble",
-		image: "https://spoonacular.com/recipeImages/Easy---Delish--Apple-Crumble-641803.jpg",
-		usedIngredientCount: 3,
-		missedIngredientCount: 4,
-		likes: 1 
-	},
-	{
-		id: 645152,
-		title: "Grandma's Apple Crisp",
-		image:"https://spoonacular.com/recipeImages/Grandmas-Apple-Crisp-645152.jpg",
-		usedIngredientCount: 3,
-		missedIngredientCount: 6,
-		likes: 1
-	},
-	{
-		id: 645152,
-		title: "Grandma's Apple Crisp",
-		image:"https://spoonacular.com/recipeImages/Grandmas-Apple-Crisp-645152.jpg",
-		usedIngredientCount: 3,
-		missedIngredientCount: 6,
-		likes: 1
-	}
-]
 
 export default function Results() {
+	const globalState = useContext(FoodContext);
+	const searchState = globalState.searchQueryState;
+	const updateSearch = globalState.updateSearchArray
+	const response = globalState.APIResponse;
+
+	useEffect(() => {
+		console.log('foo')
+		return updateSearch
+	}, [searchState]) // Clear the API response as a cleanup effect
+
 	const results = response.map((response) =>
 		<Resultcard title={response.title} img={response.img} />
 	)

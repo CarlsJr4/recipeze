@@ -1,8 +1,8 @@
 import React, { useReducer, useState } from 'react';
 import reducer from './reducers';
 import FoodContext from './FoodContext';
-import apiKey from '../key';
-var request = require('request');
+// import apiKey from '../key';
+// var request = require('request');
 
 // UX Goals
 // Next goal: Use the esc key to get out of the form
@@ -137,6 +137,9 @@ export default function GlobalState({children}) {
 			selectFood,
 			sendAPIRequest,
 			searchQueryState,
+			updateSearchArray: () => updateSearchQuery([]),
+			populateResponse,
+			clearResponse: () => populateResponse([]),
 			APIResponse
 			}}
 		>

@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect} from 'react';
 import Foodcard from './Foodcard';
 import Search from './Search';
 import FoodContext from '../../context/FoodContext';
 
 
-// Find a way to attach an event listener to the search button
-// The search button will call a dispatch function
-// The dispatch function will send args
 export default function Builder() {	
 	const globalState = useContext(FoodContext);
+	useEffect(() => {
+			// Our goal is to only run this cleanup once when we exit this page
+			return function cleanup() {
+				console.log('foo')
+				return globalState.clearResponse // Clear the search state as a cleanup effect
+			}
+		}, [globalState.APIResponse]
+	)
+
 	return (
 		<div>
 				<h1>MealBuilder</h1>
