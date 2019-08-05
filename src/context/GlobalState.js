@@ -41,18 +41,12 @@ export default function GlobalState({children}) {
 	// Handles the create, delete state of each foodcard
 	const [ingredientState, dispatch] = useReducer(reducer, ingredients);
 
-	// A temporary array that will hold the contents of foods to send to Spoonacular's API
-	// const [searchQueryState, updateSearchQuery] = useState([]);
-
-	// Stores response as an object
-	// const [APIResponse, populateResponse] = useState([]);
-
-	// Keeps track of what is being sent to and received from Spoonacular's API
 	const [APIState, modifyAPI] = useState({
 		searchTerms: [],
 		response: []
 	})
 
+	// Handles an array that will become the API request's search terms
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
 		if (checkBox.checked) {
@@ -96,6 +90,7 @@ export default function GlobalState({children}) {
 		//   receiveFoods(res);
 		//   console.log(APIResponse);
 		// });
+
 		// Placeholder response so we don't use up too many API calls
 		const res = [
 			{
@@ -114,8 +109,7 @@ export default function GlobalState({children}) {
 				image: 'https://picsum.photos/200'
 			}
 		]
-		return modifyAPI({...APIState, response: [...res]}); // Reset the search state so duplicates don't get sent if the user hits the back button
-		// What if we use unload to reset the search query? NOTE: We need to reset the search 
+		return modifyAPI({...APIState, response: [...res]}); 
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
@@ -142,7 +136,8 @@ export default function GlobalState({children}) {
 			addFood,
 			selectFood,
 			sendAPIRequest,
-			APIState
+			APIState, // This is only here for debugging
+			modifyAPI
 			}}
 		>
 			{children}

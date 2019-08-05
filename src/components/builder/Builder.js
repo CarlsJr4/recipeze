@@ -6,14 +6,11 @@ import FoodContext from '../../context/FoodContext';
 
 export default function Builder() {	
 	const globalState = useContext(FoodContext);
-	useEffect(() => {
-			// Our goal is to only run this cleanup once when we exit this page
-			return function cleanup() {
-				console.log('foo')
-				return globalState.clearResponse // Clear the search state as a cleanup effect
-			}
-		}, [globalState.APIResponse]
-	)
+	// Goal: When this component loads, clear the APIState's keys ONE TIME
+	// You need to import the hook function
+	const modifyAPI = globalState.modifyAPI;
+	
+	useEffect(() => modifyAPI({searchTerms: [], response: []}), [])
 
 	return (
 		<div>

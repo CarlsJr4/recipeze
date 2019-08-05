@@ -1,9 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 import Resultcard from './Resultcard';
 import Backbutton from './Backbutton';
-
-// This response is modeled after the Spoonacular API demo
 
 export default function Results() {
 	const globalState = useContext(FoodContext);
