@@ -6,11 +6,9 @@ import FoodContext from '../../context/FoodContext';
 
 export default function Builder() {	
 	const globalState = useContext(FoodContext);
-	// Goal: When this component loads, clear the APIState's keys ONE TIME
-	// You need to import the hook function
 	const modifyAPI = globalState.modifyAPI;
 	
-	useEffect(() => modifyAPI({searchTerms: [], response: []}), [])
+	useEffect(() => modifyAPI({searchTerms: [], response: []}), [modifyAPI])
 
 	return (
 		<div>
