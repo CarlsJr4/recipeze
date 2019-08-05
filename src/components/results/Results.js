@@ -7,14 +7,7 @@ import Backbutton from './Backbutton';
 
 export default function Results() {
 	const globalState = useContext(FoodContext);
-	const searchState = globalState.searchQueryState;
-	const updateSearch = globalState.updateSearchArray
-	const response = globalState.APIResponse;
-
-	useEffect(() => {
-		console.log('foo')
-		return updateSearch
-	}, [searchState]) // Clear the API response as a cleanup effect
+	const response = globalState.APIState.response;
 
 	const results = response.map((response) =>
 		<Resultcard title={response.title} img={response.img} />

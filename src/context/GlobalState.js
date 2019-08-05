@@ -42,27 +42,33 @@ export default function GlobalState({children}) {
 	const [ingredientState, dispatch] = useReducer(reducer, ingredients);
 
 	// A temporary array that will hold the contents of foods to send to Spoonacular's API
-	const [searchQueryState, updateSearchQuery] = useState([]);
+	// const [searchQueryState, updateSearchQuery] = useState([]);
 
 	// Stores response as an object
-	const [APIResponse, populateResponse] = useState([]);
+	// const [APIResponse, populateResponse] = useState([]);
+
+	// Keeps track of what is being sent to and received from Spoonacular's API
+	const [APIState, modifyAPI] = useState({
+		searchTerms: [],
+		response: []
+	})
 
 	function selectFood(id, name) {
 		const checkBox = document.querySelector(`input[id="${id}"]`);
 		if (checkBox.checked) {
 			const foodInfo = {name, id} // Set up an object to push to the array, incase we need to delete by ID
-			updateSearchQuery([...searchQueryState, foodInfo]);
+			modifyAPI({...APIState, searchTerms: [...APIState.searchTerms, foodInfo]})
 		} else {
-			const stateCopy = [...searchQueryState];
-			const searchState = stateCopy.filter(item => item.id !== id);
-			updateSearchQuery([...searchState]);
+			const searchArray = [...APIState.searchTerms]; // Copy the search array
+			const filteredSearch = searchArray.filter(item => item.id !== id); // Filter the search array
+			modifyAPI({...APIState, searchTerms: [...filteredSearch]}); // Update the state
 		}
 	}
 
 	function sendAPIRequest() {
-		const searchState = [...searchQueryState]; // Make a copy of the state
-		const APIArray = []; // Initialize an array for each name
-		searchState.forEach(item => APIArray.push(item.name)); // Extract each name and push to array
+		const searchArray = [...APIState.searchTerms]; // Make a copy of the state
+		const APIRequest = []; // Initialize an array for each name
+		searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
 		// Do the API stuff
 		// const searchString = APIArray.join().toLowerCase();
 		// console.log(searchString);
@@ -108,7 +114,7 @@ export default function GlobalState({children}) {
 				image: 'https://picsum.photos/200'
 			}
 		]
-		return populateResponse(res); // Reset the search state so duplicates don't get sent if the user hits the back button
+		return modifyAPI({...APIState, response: [...res]}); // Reset the search state so duplicates don't get sent if the user hits the back button
 		// What if we use unload to reset the search query? NOTE: We need to reset the search 
 	}
 
@@ -136,11 +142,7 @@ export default function GlobalState({children}) {
 			addFood,
 			selectFood,
 			sendAPIRequest,
-			searchQueryState,
-			updateSearchArray: () => updateSearchQuery([]),
-			populateResponse,
-			clearResponse: () => populateResponse([]),
-			APIResponse
+			APIState
 			}}
 		>
 			{children}
