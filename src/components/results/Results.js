@@ -12,8 +12,8 @@ export default function Results() {
 	// When this component loads, insert food titles into results description
 	useEffect(() => {
 		const foodStringArray = [];
-		const response = globalState.APIState.response; 
-		response.forEach(food => foodStringArray.push(food.title)); 
+		const searchTerms = globalState.APIState.searchTerms; 
+		searchTerms.forEach(term => foodStringArray.push(term.name)); 
 		const foodTitles = foodStringArray.join(', ');
 		return updateFoodTitles(foodTitles) 
 	}, [])

@@ -64,51 +64,51 @@ export default function GlobalState({children}) {
 		searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
 
 		// Send information to Spoonacular API
-		// const searchString = APIRequest.join().toLowerCase();
-		// const key = apiKey;
-		// var options = { 
-		// 	method: 'GET',
-		//   url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-		//   headers: { 
-		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		// 	"x-rapidapi-key": key
-		//   },
-		//   qs: { 
-		// 	"number": "5",
-		// 	"ranking": "1",
-		// 	"ignorePantry": "false",
-		// 	"ingredients": searchString 
-		//   }
-		// };
+		const searchString = APIRequest.join().toLowerCase();
+		const key = apiKey;
+		var options = { 
+			method: 'GET',
+		  url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+		  headers: { 
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": key
+		  },
+		  qs: { 
+			"number": "5",
+			"ranking": "1",
+			"ignorePantry": "false",
+			"ingredients": searchString 
+		  }
+		};
 
-		// // Add the API response to the app's state
-		// request(options, function (error, response, body) {
-		// 	if (error) throw new Error(error);
-		//   const res = JSON.parse(body);
-		// 	console.log('Parsed response: ', res);
-		// 	APIResponse = [...res];
-		// 	return modifyAPI({...APIState, response: [...APIResponse]}); 
-		// });
+		// Add the API response to the app's state
+		request(options, function (error, response, body) {
+			if (error) throw new Error(error);
+		  const res = JSON.parse(body);
+			console.log('Parsed response: ', res);
+			APIResponse = [...res];
+			return modifyAPI({...APIState, response: [...APIResponse]}); 
+		});
 
 		// Placeholder response so we don't use up too many API calls
-		const res = [
-			{
-				id: 1,
-				title: 'title1',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 2,
-				title: 'title2',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 3,
-				title: 'title3',
-				image: 'https://picsum.photos/200'
-			}
-		]
-		return modifyAPI({...APIState, response: [...res]}); 
+		// const res = [
+		// 	{
+		// 		id: 1,
+		// 		title: 'title1',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 2,
+		// 		title: 'title2',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 3,
+		// 		title: 'title3',
+		// 		image: 'https://picsum.photos/200'
+		// 	}
+		// ]
+		// return modifyAPI({...APIState, response: [...res]}); 
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
