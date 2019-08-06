@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+// Plan:
+// 1. Import context
 
 export default function Recipe() {
+	// New goal is to submit a new API request based on recipe ID, then return the information, store it in a state, then render the info
 	return (
 		<div className="recipe">
 			<h1>Blueberry Pancakes</h1>

@@ -4,7 +4,6 @@ import Resultcard from './Resultcard';
 import Backbutton from './Backbutton';
 
 export default function Results() {
-	// Maybe once this is done, we can turn this logic into a useEffect and update the state
 	const globalState = useContext(FoodContext);
 	const response = globalState.APIState.response;
 	const [foodTitles, updateFoodTitles] = useState([]);
@@ -18,8 +17,9 @@ export default function Results() {
 		return updateFoodTitles(foodTitles) 
 	}, [])
 
-	const results = response.map((response) =>
-		<Resultcard title={response.title} img={response.image} alt={response.title} />
+	// API Response results are processed here
+	const results = response.map(({title, image, id}) =>
+		<Resultcard id={id} title={title} img={image} alt={title} />
 	)
 
 	return (
@@ -28,7 +28,7 @@ export default function Results() {
 				<Backbutton />
 				<h1>Meal Builder</h1>
 			</div>
-			<h3>Found {response.length} result{(response.length == 1 ? '' : 's')} for meals including: {foodTitles}</h3>
+			<h3>Found {response.length} result{(response.length === 1 ? '' : 's')} for meals including: {foodTitles}</h3>
 			<div className="resultsContainer">
 				{results}
 			</div>
