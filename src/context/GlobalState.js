@@ -1,19 +1,17 @@
 import React, { useReducer, useState } from 'react';
 import reducer from './reducers';
 import FoodContext from './FoodContext';
-// import apiKey from '../key';
-// var request = require('request');
+import apiKey from '../key';
+var request = require('request');
 
 // UX Goals
 // Next goal: Use the esc key to get out of the form
 // Another goal: prevent user from submitting empty list items through modal box
+// Style the app to be responsive and good-looking
 
-// How do we handle deleting a selected food? Will it dissapear from the search state?
-
-// Coding goals: 
-// Next goal: Click the arrow button to submit names to spoonacular API
-// Clicking the arrow will loop through searchQueryState and extract all names 
-
+// Coding goals
+// When refreshing the results page, prevent the state from resetting
+// Connect firebase to the app
 
 // This is the top-level component of the app
 export default function GlobalState({children}) {
@@ -60,56 +58,56 @@ export default function GlobalState({children}) {
 	}
 
 	function sendAPIRequest() {
+		let APIResponse = [];
 		const searchArray = [...APIState.searchTerms]; // Make a copy of the state
 		const APIRequest = []; // Initialize an array for each name
 		searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
-		// Do the API stuff
-		// const searchString = APIArray.join().toLowerCase();
-		// console.log(searchString);
-		// const key = apiKey;
-		// var options = { 
-		// 	method: 'GET',
-		//   url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-		//   headers: { 
-		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		// 	"x-rapidapi-key": key
-		//   },
-		//   qs: { 
-		// 	"number": "5",
-		// 	"ranking": "1",
-		// 	"ignorePantry": "false",
-		// 	"ingredients": searchString 
-		//   }
-		// };
-		
-		// request(options, function (error, response, body) {
-		//   if (error) throw new Error(error);
-		//   const res = JSON.parse(body);
-		//   // Figure out a way to take the object and store it in a state
-		//   console.log(res);
-		//   receiveFoods(res);
-		//   console.log(APIResponse);
-		// });
 
-		// Placeholder response so we don't use up too many API calls
-		const res = [
-			{
-				id: 1,
-				title: 'title1',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 2,
-				title: 'title2',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 3,
-				title: 'title3',
-				image: 'https://picsum.photos/200'
-			}
-		]
-		return modifyAPI({...APIState, response: [...res]}); 
+		// Send information to Spoonacular API
+		const searchString = APIRequest.join().toLowerCase();
+		const key = apiKey;
+		var options = { 
+			method: 'GET',
+		  url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+		  headers: { 
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": key
+		  },
+		  qs: { 
+			"number": "5",
+			"ranking": "1",
+			"ignorePantry": "false",
+			"ingredients": searchString 
+		  }
+		};
+
+		// Add the API response to the app's state
+		request(options, function (error, response, body) {
+			if (error) throw new Error(error);
+		  const res = JSON.parse(body);
+			console.log('Parsed response: ', res);
+			APIResponse = [...res];
+			return modifyAPI({...APIState, response: [...APIResponse]}); 
+		});
+
+		// // Placeholder response so we don't use up too many API calls
+		// const res = [
+		// 	{
+		// 		id: 1,
+		// 		title: 'title1',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 2,
+		// 		title: 'title2',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 3,
+		// 		title: 'title3',
+		// 		image: 'https://picsum.photos/200'
+		// 	}
+		// ]
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations

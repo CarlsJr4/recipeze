@@ -8,7 +8,7 @@ export default function Results() {
 	const response = globalState.APIState.response;
 
 	const results = response.map((response) =>
-		<Resultcard title={response.title} img={response.img} />
+		<Resultcard title={response.title} img={response.image} alt={response.title} />
 	)
 
 	return (

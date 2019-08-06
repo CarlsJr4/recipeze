@@ -6,7 +6,7 @@ export default function Resultcard({title, img}) {
 	return (
 		<Link to="/recipe">
 			<div className="resultCard">
-				<img src="https://picsum.photos/200" alt="recipe placeholder" />
+				<img src={img} alt="recipe placeholder" />
 				<div className="resultCard__title">
 					<Likebutton />
 					<h3>{title}</h3>
