@@ -1,36 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import FoodContext from '../../context/FoodContext';
 
 // Plan:
 // 1. Import context
 
 export default function Recipe() {
-	// New goal is to submit a new API request based on recipe ID, then return the information, store it in a state, then render the info
+	const globalState = useContext(FoodContext);
+	const {
+		servings,
+		extendedIngredients,
+		title,
+		readyInMinutes,
+		image,
+		instructions,
+		analyzedInstructions 
+	} = globalState.recipeInfo;
+
+	const ingredients = extendedIngredients.map(ingredient => 
+		<li>{ingredient.originalString}</li>
+		)
+
+	const numberedSteps = extendedIngredients.analyzedInstructions
+
+	// const numberedInstructions = numberedSteps.map(step => 
+	// 		<p>{step.number}. {step}</p>
+	// 	)
+
 	return (
 		<div className="recipe">
-			<h1>Blueberry Pancakes</h1>
+			<h1>{title}</h1>
 
 			<div className="recipe__summary">
-				<img src="https://picsum.photos/200" alt="Recipe name" />
+				<img src={image} alt={title} />
 				<div className="recipe__ingredients">
-					<h3>Prep Time: 10 min</h3>
+					<h3>Preparation time: </h3>
+						 <p>{readyInMinutes} minutes</p>
+					<h3>Number of servings: </h3>
+					<p>{servings}</p>
 					<h3>Ingredients:</h3>
 					<ul>
-						<li>Flour</li>
-						<li>Egg</li>
-						<li>Blueberries</li>
-						<li>Sugar</li>
-						<li>Butter</li>
+						{ingredients}
 					</ul>
 				</div>
 			</div>
 
 				<div className="recipe__instructions">
 					<h3>Instructions:</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
-						 odit. Beatae impedit reprehenderit alias minima animi eligendi optio, 
-						 eveniet repellat necessitatibus libero, incidunt assumenda eos tempore
-						  reiciendis! Voluptatibus, ipsum fuga!
-					</p>
+					<p>{instructions}</p>
 				</div>
 		</div>
 	)

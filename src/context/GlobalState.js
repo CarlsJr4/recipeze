@@ -60,8 +60,47 @@ export default function GlobalState({children}) {
 	}
 
 	function getRecipeByID(id) {
-		console.log(id)
-		return setRecipeInfo({})
+		// Keys to extract from API: servings, extendedIngredients, title, readyInMinutes, image, analyzedInstructions - steps  
+		// Break down the steps array into individual lines in the recipe page
+		// First, start off with placeholder information
+		// NOTE: Some recipes don't have analyzedInstructions
+		const res = {
+			servings: 10,
+			extendedIngredients: [
+				{
+					originalString: "1 quart water or chicken stock"
+				},
+				{
+					originalString: "1 quart water or chicken stock"
+				},
+				{
+					originalString: "1 quart water or chicken stock"
+				}
+			],
+			title: "Char-Grilled Beef Tenderloin with Three-Herb Chimichurri",
+			readyInMinutes: 45,
+			image: "https://spoonacular.com/recipeImages/char-grilled-beef-tenderloin-with-three-herb-chimichurri-156992.jpg",
+			instructions: "Lorem Ipsum",
+			analyzedInstructions: [{
+					name: "",
+					steps: [
+						{
+							number: 1,
+							step: "lorem ipsum"
+						},
+						{
+							number: 2,
+							step: "lorem ipsum"
+						},
+						{
+							number: 3,
+							step: "lorem ipsum"
+						}
+					]
+				}
+			]
+		}
+		return setRecipeInfo(res)
 	}
 
 	function sendAPIRequest() {
