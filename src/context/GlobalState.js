@@ -60,10 +60,28 @@ export default function GlobalState({children}) {
 	}
 
 	function getRecipeByID(id) {
-		// Keys to extract from API: servings, extendedIngredients, title, readyInMinutes, image, analyzedInstructions - steps  
-		// Break down the steps array into individual lines in the recipe page
-		// First, start off with placeholder information
-		// NOTE: Some recipes don't have analyzedInstructions
+		// let APIResponse = []
+		// const key = apiKey;
+		// var options = { 
+		// 	method: 'GET',
+		//   url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
+		//   headers: { 
+		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+		// 	"x-rapidapi-key": key
+		//   },
+		// };
+
+		// // Add the API response to the app's state
+		// request(options, function (error, response, body) {
+		// 	if (error) throw new Error(error);
+		//   const res = JSON.parse(body);
+		// 	console.log('Parsed response: ', res);
+		// 	APIResponse = res;
+		// 	return setRecipeInfo(APIResponse); 
+		// });
+
+		// Placeholder response
+		// Note: ExtendedIngredients is bugged in the live version
 		const res = {
 			servings: 10,
 			extendedIngredients: [
@@ -104,12 +122,12 @@ export default function GlobalState({children}) {
 	}
 
 	function sendAPIRequest() {
-		let APIResponse = [];
-		const searchArray = [...APIState.searchTerms]; // Make a copy of the state
-		const APIRequest = []; // Initialize an array for each name
-		searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
+		// let APIResponse = [];
+		// const searchArray = [...APIState.searchTerms]; // Make a copy of the state
+		// const APIRequest = []; // Initialize an array for each name
+		// searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
 
-		// Send information to Spoonacular API
+		// // Send information to Spoonacular API
 		// const searchString = APIRequest.join().toLowerCase();
 		// const key = apiKey;
 		// var options = { 

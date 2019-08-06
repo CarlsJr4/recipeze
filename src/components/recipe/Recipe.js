@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import FoodContext from '../../context/FoodContext';
 
-// Plan:
-// 1. Import context
 
 export default function Recipe() {
 	const globalState = useContext(FoodContext);
@@ -19,12 +17,6 @@ export default function Recipe() {
 	const ingredients = extendedIngredients.map(ingredient => 
 		<li>{ingredient.originalString}</li>
 		)
-
-	const numberedSteps = extendedIngredients.analyzedInstructions
-
-	// const numberedInstructions = numberedSteps.map(step => 
-	// 		<p>{step.number}. {step}</p>
-	// 	)
 
 	return (
 		<div className="recipe">
