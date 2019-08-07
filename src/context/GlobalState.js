@@ -123,6 +123,10 @@ export default function GlobalState({children}) {
 	function sendAPIRequest() {
 		// let APIResponse = [];
 		// const searchArray = [...APIState.searchTerms]; // Make a copy of the state
+		// if (!searchArray.length) {
+		// 	alert('You must select at least one food to submit')
+		// 	return
+		// }
 		// const APIRequest = []; // Initialize an array for each name
 		// searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
 
