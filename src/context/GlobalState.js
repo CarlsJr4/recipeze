@@ -4,30 +4,6 @@ import FoodContext from './FoodContext';
 import apiKey from '../key';
 var request = require('request');
 
-// The plan:
-// Use an effect hook
-
-// Writing to storage 
-// When the DOM changes, set localStorage item ingredients to ingredients state
-// Only run effect when the ingredient state changes
-
-// Loading from storage
-// Set a constant to receive object from localStorage one time when page loads
-
-// The problem: How to give users the default ingredients? 
-// Default state is the default ingredients
-// When the default ingredients get overwritten, push to localStorage
-// Now, modified ingredients can be loaded from storage
-
-// What about the first load?
-// If local storage item doesn't exist, load the default foods
-
-// NOTE: Only strings can be written to localStorage
-// Use JSON.stringify(object) to turn your object into a string
-// Use window.localStorage.getItem('key') to receive an object
-// Use window.localStorage.setItem('key', 'value as string') to post an object
-// Use JSON.parse(string) to turn the received item into an object to read
-
 // UX Goals
 // Next goal: Use the esc key to get out of the form
 
