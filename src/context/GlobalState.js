@@ -202,7 +202,8 @@ export default function GlobalState({children}) {
 			APIState,
 			modifyAPI,
 			recipeInfo,
-			getRecipeByID
+			getRecipeByID,
+			setRecipeInfo
 			}}
 		>
 			{children}

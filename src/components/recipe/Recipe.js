@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import FoodContext from '../../context/FoodContext';
 
 
@@ -14,9 +14,13 @@ export default function Recipe() {
 		analyzedInstructions 
 	} = globalState.recipeInfo;
 
-	// The bug is caused by things not loading fast enough - How can we handle this?
-	// The page loads faster than the state can be updated
-	// Solution: Use async await? UseEffect?
+	// When navigating away from this page, clear the recipe from globalState
+	useEffect(() => {
+		return function cleanup() {
+			return globalState.setRecipeInfo({})
+		}
+	})
+
 	let ingredients 
 	if (extendedIngredients) {
 		ingredients = extendedIngredients.map(ingredient => 
