@@ -1,11 +1,14 @@
 .recipe__summary {
+	margin-top: $base-margin * 3;
 	display: grid;
 	grid-gap: 20px;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 3fr;
 
 	img {
 		@include card-style;
 		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.recipe__ingredients {
@@ -13,5 +16,12 @@
 		padding: $base-padding $base-padding * 2;
 		color: white;
 		background-color: $main-theme;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.recipe__summary {
+		grid-template-columns: none;
+		grid-template-rows: 1fr 1fr;
 	}
 }
