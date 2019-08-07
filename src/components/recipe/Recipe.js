@@ -20,7 +20,7 @@ export default function Recipe() {
 		const directions = analyzedInstructions[0].steps;
 		displayedInstructions = directions.map(step => <p>{step.number}. {step.step}</p>);
 	} else {
-		displayedInstructions = instructions
+		displayedInstructions = <p>{instructions}</p>
 	}
 
 	// When navigating away from this page, clear the recipe from globalState
@@ -57,7 +57,7 @@ export default function Recipe() {
 
 				<div className="recipe__instructions">
 					<h3>Instructions:</h3>
-					<p>{displayedInstructions}</p>
+					{displayedInstructions}
 				</div>
 		</div>
 	)
