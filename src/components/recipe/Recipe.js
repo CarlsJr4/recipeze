@@ -44,7 +44,6 @@ export default function Recipe() {
 
 	return (
 		<div className="recipe">
-			<Loader />
 			<h1>{title}</h1>
 
 			<div className="recipe__summary">
