@@ -25,7 +25,9 @@
 	background-color: lightblue;
 
 	&__container {
+		max-height: 85%;
 		overflow-y: auto;
+		overflow-x: hidden;
 	}
 
 	// Indiauto styles of the foodcards
@@ -84,6 +86,14 @@
 				transition: 0.1s;
 				display: grid;
 				grid-template-columns: 1fr auto;
+
+				span:first-child {
+					overflow-x: hidden;
+				}
+
+				span:last-child {
+					padding-left: $base-padding;
+				}
 
 				&:hover {
 					background-color: $food-hover-color;
