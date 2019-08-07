@@ -10,7 +10,6 @@ var request = require('request');
 // Style the app to be responsive and good-looking
 
 // Coding goals
-// When refreshing the results page, prevent the state from resetting
 // Connect firebase to the app
 
 // This is the top-level component of the app

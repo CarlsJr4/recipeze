@@ -10,6 +10,10 @@ export default function Inputfood({category, handleClick, handleChange, handleBl
 		e.preventDefault();
 		handleChange({inputValue: ''}); // Reset internal state
 		const addedFood = inputBox.current.value;
+		if (!addedFood.length) {
+			alert('You cannot submit a blank food item');
+			return
+		}
 		inputBox.current.value = ''; // Reset input box
 		globalState.addFood(addedFood, category);
 	}
