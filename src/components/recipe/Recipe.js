@@ -14,6 +14,7 @@ export default function Recipe() {
 		analyzedInstructions 
 	} = globalState.recipeInfo;
 
+	// Check if ideal instructions format exists, and render them if they do
 	let displayedInstructions
 	if (analyzedInstructions) {
 		const directions = analyzedInstructions[0].steps;
