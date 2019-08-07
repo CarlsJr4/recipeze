@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import FoodContext from '../../context/FoodContext';
 import Resultcard from './Resultcard';
+import Loader from '../Loader';
 
 export default function Results() {
 	const globalState = useContext(FoodContext);
@@ -15,6 +16,10 @@ export default function Results() {
 		const foodTitles = foodStringArray.join(', ');
 		return updateFoodTitles(foodTitles) 
 	}, [])
+
+	if (response.length === 0) {
+		return <Loader />
+	}
 
 	// API Response results are processed here
 	const results = response.map(({title, image, id}) =>
