@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import FoodContext from '../../context/FoodContext';
 import Resultcard from './Resultcard';
-import Backbutton from './Backbutton';
 
 export default function Results() {
 	const globalState = useContext(FoodContext);
