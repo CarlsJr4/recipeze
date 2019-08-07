@@ -24,11 +24,11 @@ export default function Recipe() {
 	}
 
 	// When navigating away from this page, clear the recipe from globalState
-	useEffect(() => {
-		return function cleanup() {
+	useEffect(() => 
+		function cleanup() {
 			return globalState.setRecipeInfo({})
-		}
-	})
+		}, []
+	)
 
 	let ingredients 
 	if (extendedIngredients) {
