@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import FoodContext from '../../context/FoodContext';
+import Loader from '../Loader';
 
 
 export default function Recipe() {
@@ -37,8 +38,13 @@ export default function Recipe() {
 		)
 	} else ingredients = <li>Loading ingredients...</li>
 
+	if (Object.getOwnPropertyNames(globalState.recipeInfo).length === 0) {
+		return <Loader />
+	}
+
 	return (
 		<div className="recipe">
+			<Loader />
 			<h1>{title}</h1>
 
 			<div className="recipe__summary">
