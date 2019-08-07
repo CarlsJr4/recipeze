@@ -24,10 +24,7 @@ export default function Results() {
 
 	return (
 		<div>
-			<div className="resultsTitle">
-				<Backbutton />
-				<h1>Meal Builder</h1>
-			</div>
+			<h1>Meal Builder</h1>
 			<h3>Found {response.length} result{(response.length === 1 ? '' : 's')} for meals including: {foodTitles}</h3>
 			<div className="resultsContainer">
 				{results}
