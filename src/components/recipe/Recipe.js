@@ -14,9 +14,15 @@ export default function Recipe() {
 		analyzedInstructions 
 	} = globalState.recipeInfo;
 
-	const ingredients = extendedIngredients.map(ingredient => 
-		<li>{ingredient.originalString}</li>
+	// The bug is caused by things not loading fast enough - How can we handle this?
+	// The page loads faster than the state can be updated
+	// Solution: Use async await? UseEffect?
+	let ingredients 
+	if (extendedIngredients) {
+		ingredients = extendedIngredients.map(ingredient => 
+			<li>{ingredient.originalString}</li>
 		)
+	} else ingredients = <li>Loading ingredients...</li>
 
 	return (
 		<div className="recipe">
