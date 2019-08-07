@@ -14,6 +14,14 @@ export default function Recipe() {
 		analyzedInstructions 
 	} = globalState.recipeInfo;
 
+	let displayedInstructions
+	if (analyzedInstructions) {
+		const directions = analyzedInstructions[0].steps;
+		displayedInstructions = directions.map(step => <p>{step.number}. {step.step}</p>);
+	} else {
+		displayedInstructions = instructions
+	}
+
 	// When navigating away from this page, clear the recipe from globalState
 	useEffect(() => {
 		return function cleanup() {
@@ -48,7 +56,7 @@ export default function Recipe() {
 
 				<div className="recipe__instructions">
 					<h3>Instructions:</h3>
-					<p>{instructions}</p>
+					<p>{displayedInstructions}</p>
 				</div>
 		</div>
 	)
