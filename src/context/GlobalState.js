@@ -20,18 +20,21 @@ export default function GlobalState({children}) {
 			{ name: 'Beef', id: 'p1'}, 
 			{ name: 'Chicken', id: 'p2'},
 			{ name: 'Pork', id: 'p3'},
+			{ name: 'Tofu', id: 'p4'},
+			{ name: 'Salmon', id: 'p5'},
 		],
 		grains: [
 			{ name: 'White Rice', id: 'g1'},
 			{ name: 'Brown Rice', id: 'g2'},
+			{ name: 'Quinoa', id: 'g3'},
 		],
 		veggies: [
 			{ name: 'Broccoli', id: 'v1'},
 			{ name: 'Spinach', id: 'v2'},
-			{ name: 'Brussels Sprouts', id: 'v3'},
+			{ name: 'Lettuce', id: 'v3'},
 		],
 		custom: [
-			{ name: 'Nuts', id: 'c1'},
+			{ name: 'Peanuts', id: 'c1'},
 		],
 	}
 
