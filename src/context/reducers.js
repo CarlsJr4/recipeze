@@ -34,8 +34,8 @@ const reducer = (state, action) => {
 			return removeFood(state, action.category, action.id);
 		case 'add_food':
 			return addFood(state, action.category, action.inputValue)
-		// case 'load_foods':
-		// 	return action.defaultIngredients
+		case 'load_foods':
+			return action.defaultIngredients
 		default: throw new Error()
 	}
 }

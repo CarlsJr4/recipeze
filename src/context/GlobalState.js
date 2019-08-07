@@ -58,24 +58,21 @@ export default function GlobalState({children}) {
 		],
 	}
 	
-	// When calling this variable, it will return ingredients from localStorage
-	// const localStorage = () => window.localStorage.getItem('ingredientList'); // Get stored ingredients
-	// const ingredients = JSON.parse(localStorage());
+	const storedFoods = window.localStorage.getItem('ingredientList'); 
+	const parsedFoods = JSON.parse(storedFoods)
 
-	// If first time loading, the app needs to send default foods to localStorage, then set the state
-	// if (!localStorage) { 
-	// 	window.localStorage.setItem('ingredientList', JSON.stringify(defaultIngredients)); 
-	// 	dispatch({
-	// 		type: 'load_foods',
-	// 		state: defaultIngredients
-	// 	})
-	// }
+	const [ingredientState, dispatch] = useReducer(reducer, parsedFoods);
 
-	const [ingredientState, dispatch] = useReducer(reducer, defaultIngredients);
+	// If localStorage has nothing, we must populate state first to render the app, then write the default ingredients to localStorage
+	if (!parsedFoods) {
+		dispatch({
+			type: 'load_foods',
+			defaultIngredients
+		})
+		window.localStorage.setItem('ingredientList', JSON.stringify(defaultIngredients));
+	}
 
-
-	// Effect that only runs when the list of ingredients changes
-	// This will handle writing to localStorage
+	// Write to localStorage when foodCards are modified
 	useEffect(() => window.localStorage.setItem('ingredientList', JSON.stringify(ingredientState)), [ingredientState]);
 
 	const [APIState, modifyAPI] = useState({
