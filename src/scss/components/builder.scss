@@ -87,14 +87,17 @@
 				display: grid;
 				grid-template-columns: 1fr auto;
 
+				// The food words
 				span:first-child {
 					overflow-x: hidden;
 				}
 
+				// The X icon
 				span:last-child {
-					padding-left: $base-padding;
+					margin-left: $base-padding;
 				}
 
+				// Hovering over the food words
 				&:hover {
 					background-color: $food-hover-color;
 					color: $food-hover-font-color;
@@ -113,6 +116,28 @@ label.checked {
 		i.fa-times {
 			display: none;
 		}
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.builder__categories {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+
+		a {
+			justify-self: center;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+	}
+
+	.foodCard {
+		margin-top: $base-margin;
+		padding: 1rem 2rem 8rem 2rem;
+	}
+
+	button[name="cancelAdd"], button[name="Add"] {
+		bottom: 2rem;
 	}
 }
 
