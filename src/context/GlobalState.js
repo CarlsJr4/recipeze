@@ -83,17 +83,17 @@ export default function GlobalState({children}) {
 		// Note: ExtendedIngredients is bugged in the live version
 		const res = {
 			servings: 10,
-			// extendedIngredients: [
-			// 	{
-			// 		originalString: "1 quart water or chicken stock"
-			// 	},
-			// 	{
-			// 		originalString: "1 quart water or chicken stock"
-			// 	},
-			// 	{
-			// 		originalString: "1 quart water or chicken stock"
-			// 	}
-			// ],
+			extendedIngredients: [
+				{
+					originalString: "1 quart water or chicken stock"
+				},
+				{
+					originalString: "1 quart water or chicken stock"
+				},
+				{
+					originalString: "1 quart water or chicken stock"
+				}
+			],
 			title: "Char-Grilled Beef Tenderloin with Three-Herb Chimichurri",
 			readyInMinutes: 45,
 			image: "https://spoonacular.com/recipeImages/char-grilled-beef-tenderloin-with-three-herb-chimichurri-156992.jpg",

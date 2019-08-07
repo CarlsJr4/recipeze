@@ -1,8 +1,13 @@
+.builder {
+	height: 100%;
+}
+
 // The food card container
-.categories {
+.builder__categories {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) auto;
 	grid-gap: 20px;
+	height: 100%;
 
 	// Button to submit search query
 	a {
@@ -19,7 +24,11 @@
 	padding: 0 2rem 5rem 2rem;
 	background-color: lightblue;
 
-	// Individual styles of the foodcards
+	&__container {
+		overflow-y: auto;
+	}
+
+	// Indiauto styles of the foodcards
 	&--Protein {
 		background-color: $cardColor1;
 	}

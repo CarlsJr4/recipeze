@@ -44,13 +44,15 @@ export default function Foodcard({title, contents, icon, category}) {
 	return (
 		<div className={`foodCard foodCard--${title}`}>
 			<h3>{title} <i className={`fas fa-${icon}`}></i></h3>
-			<form name="foodCardInputs">
-				{foodContents}
-			</form>
-			<Foodform 
-				handleChange={setStateInput} 
-				category={category}
-			/>
+			<div className="foodCard__container">
+				<form name="foodCardInputs">
+					{foodContents}
+				</form>
+				<Foodform 
+					handleChange={setStateInput} 
+					category={category}
+				/>
+			</div>
 		</div>
 	)
 }

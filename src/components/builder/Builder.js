@@ -11,10 +11,10 @@ export default function Builder() {
 	useEffect(() => modifyAPI({searchTerms: [], response: []}), [modifyAPI])
 
 	return (
-		<div>
+		<div className="builder">
 				<h1>MealBuilder</h1>
 				<h3>Pick foods from at least 3 categories</h3>
-				<div className="categories">
+				<div className="builder__categories">
 					<Foodcard 
 						title="Protein" 
 						icon="drumstick-bite" 
