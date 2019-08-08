@@ -3,7 +3,7 @@ import GlobalState from '../context/GlobalState';
 import Builder from './builder/Builder';
 import Results from './results/Results';
 import Recipe from './recipe/Recipe';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 
 function App() {
