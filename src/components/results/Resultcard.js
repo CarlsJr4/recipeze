@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import Likebutton from './Likebutton';
+// import Likebutton from './Likebutton';
 import { Link } from 'react-router-dom';
 import FoodContext from '../../context/FoodContext';
 
@@ -11,7 +11,7 @@ export default function Resultcard({title, img, id}) {
 			<div className="resultCard" onClick={() => globalState.getRecipeByID(id)}>
 				<img src={img} alt="recipe placeholder" />
 				<div className="resultCard__title">
-					<Likebutton />
+					{/* <Likebutton /> */}
 					<h3>{title}</h3>
 				</div>
 			</div>
