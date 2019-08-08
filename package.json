@@ -1,7 +1,8 @@
 {
   "name": "mealbuilder",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"homepage": "http://carlsjr4.github.io/mealbuilder",
   "dependencies": {
     "@types/react-router": "^5.0.3",
     "node-sass": "^4.12.0",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -31,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
