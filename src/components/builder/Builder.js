@@ -12,8 +12,8 @@ export default function Builder() {
 
 	return (
 		<div className="builder">
-				<h1>MealBuilder</h1>
-				<h3>Pick foods from any desired category.</h3>
+				<h1>Builder</h1>
+				<h3>Pick foods from any desired category to construct a simple meal.</h3>
 				<div className="builder__categories">
 					<Foodcard 
 						title="Protein" 
