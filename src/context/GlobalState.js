@@ -171,6 +171,7 @@ export default function GlobalState({children}) {
 		// });
 
 		// Placeholder response so we don't use up too many API calls
+		// Test what happens if response returns an empty array
 		const res = [
 			{
 				id: 1,

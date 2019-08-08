@@ -8,6 +8,8 @@ export default function Results() {
 	const response = globalState.APIState.response;
 	const [foodTitles, updateFoodTitles] = useState([]);
 
+	const [counter, waitedThreeSeconds] = useState(false);
+
 	// When this component loads, insert food titles into results description
 	useEffect(() => {
 		const foodStringArray = [];
@@ -17,7 +19,10 @@ export default function Results() {
 		return updateFoodTitles(foodTitles) 
 	}, [])
 
-	if (response.length === 0) {
+	setTimeout(() => waitedThreeSeconds(true), 2000)
+
+	// We use (!counter) to differentiate between loading the state or not finding any results at all
+	if (response.length === 0 && (!counter)) {
 		return <Loader />
 	}
 
