@@ -20,11 +20,13 @@ export default function Recipe() {
 
 	// Check if ideal instructions format exists, and render them if they do
 	let displayedInstructions
-	if (analyzedInstructions) {
+	if (analyzedInstructions && analyzedInstructions.length > 0) {
 		const directions = analyzedInstructions[0].steps;
 		displayedInstructions = directions.map(step => <p>{step.number}. {step.step}</p>);
-	} else {
+	} else if (instructions) {
 		displayedInstructions = <p>{instructions}</p>
+	} else {
+		displayedInstructions = <p>Instructions only available on original recipe (see below).</p>
 	}
 
 	// When navigating away from this page, clear the recipe from globalState
