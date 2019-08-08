@@ -128,7 +128,8 @@ export default function GlobalState({children}) {
 						}
 					]
 				}
-			]
+			],
+			sourceUrl: "http://www.epicurious.com/recipes/food/views/Char-Grilled-Beef-Tenderloin-with-Three-Herb-Chimichurri-235342"
 		}
 		return setRecipeInfo(res)
 	}

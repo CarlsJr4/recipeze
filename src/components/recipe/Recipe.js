@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import FoodContext from '../../context/FoodContext';
 import Loader from '../Loader';
+import Homebutton from '../recipe/Homebutton';
+import Original from '../recipe/Original';
 
 
 export default function Recipe() {
@@ -12,7 +14,8 @@ export default function Recipe() {
 		readyInMinutes,
 		image,
 		instructions,
-		analyzedInstructions 
+		analyzedInstructions,
+		sourceUrl 
 	} = globalState.recipeInfo;
 
 	// Check if ideal instructions format exists, and render them if they do
@@ -60,10 +63,17 @@ export default function Recipe() {
 				</div>
 			</div>
 
-				<div className="recipe__instructions">
-					<h3>Instructions:</h3>
-					{displayedInstructions}
-				</div>
+			<div className="recipe__instructions">
+				<h3>Instructions:</h3>
+				{displayedInstructions}
+			</div>
+
+			<br></br>
+
+			<div className="recipe__buttons">
+				<Homebutton />
+				<Original link={sourceUrl}/>
+			</div>
 		</div>
 	)
 }
