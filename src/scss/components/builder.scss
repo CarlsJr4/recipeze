@@ -95,6 +95,10 @@
 				// The X icon
 				span:last-child {
 					margin-left: $base-padding;
+
+					&:hover {
+						transform: scale(1.3);
+					}
 				}
 
 				// Hovering over the food words
