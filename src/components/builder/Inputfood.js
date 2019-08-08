@@ -19,7 +19,7 @@ export default function Inputfood({category, handleClick, handleChange, handleBl
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} name="foodCardBottom">
 			<input 
 				ref={inputBox}
 				onBlur={() => handleBlur(false) } // Sets inputEnabled to false for better UX

@@ -4,7 +4,7 @@ import React from 'react';
 export default function Addfood({handleClick}) {
 	return (
 		// We only surround this button in form tags so we can easily apply the style to it. We should refactor this later.
-		<form>
+		<form name="foodCardBottom">
 			<button type="button" name="Add" onClick={() => handleClick(true)}>
 				<i className="fas fa-plus"></i>
 			</button>

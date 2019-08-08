@@ -118,6 +118,16 @@
 
 		}
 
+		// This is only here because centering the + button wasn't working on chrome
+		form[name="foodCardBottom"] {
+			display: flex;
+			justify-content: center;
+
+			input {
+				width:100%;
+			}
+		}
+
 	}
 
 label.checked {
