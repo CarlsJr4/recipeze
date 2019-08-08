@@ -9,7 +9,7 @@ export default function Resultcard({title, img, id}) {
 	return (
 		<Link to="/recipe">
 			<div className="resultCard" onClick={() => globalState.getRecipeByID(id)}>
-				<img src={img} alt="recipe placeholder" />
+				<img src={img} alt={title} />
 				<div className="resultCard__title">
 					{/* <Likebutton /> */}
 					<h3>{title}</h3>
