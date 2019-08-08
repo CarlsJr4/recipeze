@@ -12,8 +12,16 @@ export default function Builder() {
 
 	return (
 		<div className="builder">
-				<h1>Builder</h1>
-				<h3>Pick foods from any desired category to construct a simple meal.</h3>
+				<h1>Meal Builder</h1>
+				<details>
+					<summary><strong>How to use:</strong></summary>
+					<p>1. Click ingredients to select them.</p>
+					<p>2. Click the arrow button to search for meals containing your selected ingredients.</p>
+					<hr></hr>
+					<p>You can manage your ingredients by interacting with the ingredient cards.</p>
+					<p>All of your ingredients will be saved to your browser's local storage for future access.</p>
+				</details>
+				<br />
 				<div className="builder__categories">
 					<Foodcard 
 						title="Protein" 

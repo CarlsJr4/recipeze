@@ -1,5 +1,11 @@
 .builder {
 	height: 100%;
+
+	details > summary {
+		cursor: pointer;
+		padding: $base-padding 0;
+	}
+
 }
 
 // The food card container
@@ -86,6 +92,7 @@
 				transition: 0.1s;
 				display: grid;
 				grid-template-columns: 1fr auto;
+				cursor: pointer;
 
 				// The food words
 				span:first-child {
