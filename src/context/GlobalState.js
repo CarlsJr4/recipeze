@@ -4,9 +4,6 @@ import FoodContext from './FoodContext';
 import apiKey from '../key';
 var request = require('request');
 
-// UX Goals
-// Next goal: Use the esc key to get out of the form
-
 
 // This is the top-level component of the app
 export default function GlobalState({children}) {
@@ -72,125 +69,124 @@ export default function GlobalState({children}) {
 	}
 
 	function getRecipeByID(id) {
-		// let APIResponse = []
-		// const key = apiKey;
-		// var options = { 
-		// 	method: 'GET',
-		//   url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
-		//   headers: { 
-		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		// 	"x-rapidapi-key": key
-		//   },
-		// };
+		let APIResponse = []
+		const key = apiKey;
+		var options = { 
+			method: 'GET',
+		  url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
+		  headers: { 
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": key
+		  },
+		};
 
-		// // Add the API response to the app's state
-		// request(options, function (error, response, body) {
-		// 	if (error) throw new Error(error);
-		//   const res = JSON.parse(body);
-		// 	console.log('Parsed response: ', res);
-		// 	APIResponse = res;
-		// 	return setRecipeInfo(APIResponse); 
-		// });
+		// Add the API response to the app's state
+		request(options, function (error, response, body) {
+			if (error) throw new Error(error);
+		  const res = JSON.parse(body);
+			console.log('Parsed response: ', res);
+			APIResponse = res;
+			return setRecipeInfo(APIResponse); 
+		});
 
 		// Placeholder response
-		// Note: ExtendedIngredients is bugged in the live version
-		const res = {
-			servings: 10,
-			extendedIngredients: [
-				{
-					originalString: "1 quart water or chicken stock"
-				},
-				{
-					originalString: "1 quart water or chicken stock"
-				},
-				{
-					originalString: "1 quart water or chicken stock"
-				}
-			],
-			title: "Char-Grilled Beef Tenderloin with Three-Herb Chimichurri",
-			readyInMinutes: 45,
-			image: "https://spoonacular.com/recipeImages/char-grilled-beef-tenderloin-with-three-herb-chimichurri-156992.jpg",
-			instructions: "Lorem Ipsum",
-			analyzedInstructions: [{
-					name: "",
-					steps: [
-						{
-							number: 1,
-							step: "lorem ipsum"
-						},
-						{
-							number: 2,
-							step: "lorem ipsum"
-						},
-						{
-							number: 3,
-							step: "lorem ipsum"
-						}
-					]
-				}
-			],
-			sourceUrl: "http://www.epicurious.com/recipes/food/views/Char-Grilled-Beef-Tenderloin-with-Three-Herb-Chimichurri-235342"
-		}
-		return setRecipeInfo(res)
+		// Incase there needs to be any testing without using too many API calls
+		// const res = {
+		// 	servings: 10,
+		// 	extendedIngredients: [
+		// 		{
+		// 			originalString: "1 quart water or chicken stock"
+		// 		},
+		// 		{
+		// 			originalString: "1 quart water or chicken stock"
+		// 		},
+		// 		{
+		// 			originalString: "1 quart water or chicken stock"
+		// 		}
+		// 	],
+		// 	title: "Char-Grilled Beef Tenderloin with Three-Herb Chimichurri",
+		// 	readyInMinutes: 45,
+		// 	image: "https://spoonacular.com/recipeImages/char-grilled-beef-tenderloin-with-three-herb-chimichurri-156992.jpg",
+		// 	instructions: "Lorem Ipsum",
+		// 	analyzedInstructions: [{
+		// 			name: "",
+		// 			steps: [
+		// 				{
+		// 					number: 1,
+		// 					step: "lorem ipsum"
+		// 				},
+		// 				{
+		// 					number: 2,
+		// 					step: "lorem ipsum"
+		// 				},
+		// 				{
+		// 					number: 3,
+		// 					step: "lorem ipsum"
+		// 				}
+		// 			]
+		// 		}
+		// 	],
+		// 	sourceUrl: "http://www.epicurious.com/recipes/food/views/Char-Grilled-Beef-Tenderloin-with-Three-Herb-Chimichurri-235342"
+		// }
+		// return setRecipeInfo(res)
 	}
 
 	function sendAPIRequest() {
-		// let APIResponse = [];
-		// const searchArray = [...APIState.searchTerms]; // Make a copy of the state
-		// if (!searchArray.length) {
-		// 	alert('You must select at least one food to submit')
-		// 	return
-		// }
-		// const APIRequest = []; // Initialize an array for each name
-		// searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
+		let APIResponse = [];
+		const searchArray = [...APIState.searchTerms]; // Make a copy of the state
+		if (!searchArray.length) {
+			alert('You must select at least one food to submit')
+			return
+		}
+		const APIRequest = []; // Initialize an array for each name
+		searchArray.forEach(item => APIRequest.push(item.name)); // Extract each name and push to array
 
-		// // Send information to Spoonacular API
-		// const searchString = APIRequest.join().toLowerCase();
-		// const key = apiKey;
-		// var options = { 
-		// 	method: 'GET',
-		//   url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-		//   headers: { 
-		// 	"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		// 	"x-rapidapi-key": key
-		//   },
-		//   qs: { 
-		// 	"number": "5",
-		// 	"ranking": "1",
-		// 	"ignorePantry": "false",
-		// 	"ingredients": searchString 
-		//   }
-		// };
+		// Send information to Spoonacular API
+		const searchString = APIRequest.join().toLowerCase();
+		const key = apiKey;
+		var options = { 
+			method: 'GET',
+		  url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+		  headers: { 
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": key
+		  },
+		  qs: { 
+			"number": "10",
+			"ranking": "1",
+			"ignorePantry": "false",
+			"ingredients": searchString 
+		  }
+		};
 
-		// // Add the API response to the app's state
-		// request(options, function (error, response, body) {
-		// 	if (error) throw new Error(error);
-		//   const res = JSON.parse(body);
-		// 	console.log('Parsed response: ', res);
-		// 	APIResponse = [...res];
-		// 	return modifyAPI({...APIState, response: [...APIResponse]}); 
-		// });
+		// Add the API response to the app's state
+		request(options, function (error, response, body) {
+			if (error) throw new Error(error);
+		  const res = JSON.parse(body);
+			console.log('Parsed response: ', res);
+			APIResponse = [...res];
+			return modifyAPI({...APIState, response: [...APIResponse]}); 
+		});
 
-		// Placeholder response so we don't use up too many API calls
-		// Test what happens if response returns an empty array
-		const res = [
-			{
-				id: 1,
-				title: 'title1',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 2,
-				title: 'title2',
-				image: 'https://picsum.photos/200'
-			},
-			{
-				id: 3,
-				title: 'title3',
-				image: 'https://picsum.photos/200'
-			}
-		]
-		return modifyAPI({...APIState, response: [...res]}); 
+		// // Placeholder response so we don't use up too many API calls
+		// const res = [
+		// 	{
+		// 		id: 1,
+		// 		title: 'title1',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 2,
+		// 		title: 'title2',
+		// 		image: 'https://picsum.photos/200'
+		// 	},
+		// 	{
+		// 		id: 3,
+		// 		title: 'title3',
+		// 		image: 'https://picsum.photos/200'
+		// 	}
+		// ]
+		// return modifyAPI({...APIState, response: [...res]}); 
 	}
 
 	// Passing these functions to event listeners will call dispatch with these particular configurations
