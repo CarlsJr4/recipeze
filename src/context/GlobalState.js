@@ -1,12 +1,12 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import reducer from './reducers';
 import FoodContext from './FoodContext';
-import apiKey from '../key';
 var request = require('request');
 
 
 // This is the top-level component of the app
 export default function GlobalState({children}) {
+	const apiKey = process.env.REACT_APP_API_KEY;
 
 	const defaultIngredients = {
 		proteins: [
