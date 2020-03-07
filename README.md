@@ -5,7 +5,7 @@ The purpose of Recipeze is to inspire new recipes by searching for foods includi
 Recipeze has 2 main features: searching for recipes and storing your favorite ingredients.
 
 ## Search for recipes:
-1. Click ingredients to toggle selection. 
+1. Click the ingredients on the cards to toggle selection. 
 2. Click the arrow button to search for meals containing your selected ingredients.
 3. Click on pictures of food to access your desired recipes. 
 4. From this point, you can go to the home page or follow the link to the original recipe page. 
