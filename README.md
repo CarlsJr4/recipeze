@@ -1,18 +1,18 @@
-# Recipeze - Easy Recipe Finder
-The purpose of Recipeze is to inspire new recipes by searching for foods including your favorite ingredients.
+![enter image description here](https://cdn.sanity.io/images/nof1t6y8/projects/45693423977747eff4e2ad8a24c30b95a9ee430d-2560x1415.png)
 
-# How to use:
-Recipeze has 2 main features: searching for recipes and storing your favorite ingredients.
+## Live Project: [Recipeze](https://recipeze.dev)
 
-## Search for recipes:
-1. Click the ingredients on the cards to toggle selection. 
-2. Click the arrow button to search for meals containing your selected ingredients.
-3. Click on pictures of food to access your desired recipes. 
-4. From this point, you can go to the home page or follow the link to the original recipe page. 
+The purpose of Recipeze is to help users build simple meals with their favorite ingredients. It's designed to make meal prep a little less monotonous. 
+
+Search for meals by clicking on sample ingredients and then clicking the arrow button. Ideally, you should pick 1 ingredient per category. Users can also save and delete ingredients using the buttons on-screen. All ingredient preferences are saved in LocalStorage for quick access. 
+
+See [**State management with React Context**](https://github.com/CarlsJr4/recipeze/tree/master/src/context)
+See [**All React components**](https://github.com/CarlsJr4/recipeze/tree/master/src/components)
+
+## Contributions
+- Designed, developed, and deployed the app using Figma for design, ReactJS, and SCSS
+- Created reusable functional components using React hooks
+- Worked with Spoonacular's RESTful API endpoints to request and serve data
+- Implemented client-side routing using React Router
 
 
-## Manage ingredients:
-- Click the "+" button to add ingredients. Click enter to submit or anywhere else on the screen to cancel. 
-- Click the "x" button to remove ingredients from memory.
-
-All of your ingredients will be saved to your browser's local storage for future access.
