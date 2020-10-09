@@ -6,7 +6,7 @@ The purpose of Recipeze is to help users build simple meals with their favorite 
 
 Search for meals by clicking on sample ingredients and then clicking the arrow button. Ideally, you should pick 1 ingredient per category. Users can also save and delete ingredients using the buttons on-screen. All ingredient preferences are saved in LocalStorage for quick access. 
 
-See [**State management with React Context**](https://github.com/CarlsJr4/recipeze/tree/master/src/context)
+See [**State management with React Context**](https://github.com/CarlsJr4/recipeze/tree/master/src/context) \
 See [**All React components**](https://github.com/CarlsJr4/recipeze/tree/master/src/components)
 
 ## Contributions
