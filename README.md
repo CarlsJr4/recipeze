@@ -10,8 +10,6 @@ The purpose of Recipeze is to help users build simple meals with their favorite 
 
 Search for meals by clicking on sample ingredients and then clicking the arrow button. Ideally, you should pick 1 ingredient per category. Users can also save and delete ingredients using the buttons on-screen. All ingredient preferences are saved in LocalStorage for quick access. 
 
-
-## Contributions
 - Designed, developed, and deployed the app using Figma for design, ReactJS, and SCSS
 - Created reusable functional components using React hooks
 - Worked with Spoonacular's RESTful API endpoints to request and serve data
