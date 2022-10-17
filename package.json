@@ -2,7 +2,7 @@
   "name": "mealbuilder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://carlsjr4.github.io/recipeze/",
+  "homepage": "https://recipeze.dev",
   "dependencies": {
     "@types/react-router": "^5.1.19",
     "node-sass": "^4.14.1",
