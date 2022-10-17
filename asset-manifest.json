@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.8a1f128c.chunk.css",
-    "main.js": "/static/js/main.a1b306be.chunk.js",
-    "main.js.map": "/static/js/main.a1b306be.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.055adff4.chunk.css": "/static/css/2.055adff4.chunk.css",
-    "static/js/2.195d00ac.chunk.js": "/static/js/2.195d00ac.chunk.js",
-    "static/js/2.195d00ac.chunk.js.map": "/static/js/2.195d00ac.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.87fe1b2c93edef0810ce514d27408b7c.js": "/precache-manifest.87fe1b2c93edef0810ce514d27408b7c.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.055adff4.chunk.css.map": "/static/css/2.055adff4.chunk.css.map",
-    "static/css/main.8a1f128c.chunk.css.map": "/static/css/main.8a1f128c.chunk.css.map"
+    "main.css": "/recipeze/static/css/main.8a1f128c.chunk.css",
+    "main.js": "/recipeze/static/js/main.a1b306be.chunk.js",
+    "main.js.map": "/recipeze/static/js/main.a1b306be.chunk.js.map",
+    "runtime~main.js": "/recipeze/static/js/runtime~main.21782574.js",
+    "runtime~main.js.map": "/recipeze/static/js/runtime~main.21782574.js.map",
+    "static/css/2.055adff4.chunk.css": "/recipeze/static/css/2.055adff4.chunk.css",
+    "static/js/2.a77f38d6.chunk.js": "/recipeze/static/js/2.a77f38d6.chunk.js",
+    "static/js/2.a77f38d6.chunk.js.map": "/recipeze/static/js/2.a77f38d6.chunk.js.map",
+    "index.html": "/recipeze/index.html",
+    "precache-manifest.e85e4137af74c62895e9c58538b80b8e.js": "/recipeze/precache-manifest.e85e4137af74c62895e9c58538b80b8e.js",
+    "service-worker.js": "/recipeze/service-worker.js",
+    "static/css/2.055adff4.chunk.css.map": "/recipeze/static/css/2.055adff4.chunk.css.map",
+    "static/css/main.8a1f128c.chunk.css.map": "/recipeze/static/css/main.8a1f128c.chunk.css.map"
   }
 }
