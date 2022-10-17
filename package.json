@@ -10,7 +10,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-spinkit": "^3.0.0",
     "request": "^2.88.2",
     "uuid": "^3.4.0"
